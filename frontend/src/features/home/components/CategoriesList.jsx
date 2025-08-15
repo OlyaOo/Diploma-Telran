@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CategoriesItems from "./CategoriesItems.jsx";
 import "@styles/categories.css";
 
-const Categories = () => {
+const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -10,6 +10,7 @@ const Categories = () => {
           try {
             const response = await fetch("http://localhost:3333/categories/all");
             const data = await response.json();
+            console.log("Fetched categories:", data);
             const shuffled = data.sort(() => 0.5 - Math.random());
             setCategories(shuffled.slice(0, 4));
           } catch (error) {
