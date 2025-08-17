@@ -6,6 +6,7 @@ import ProductsPage from '@features/products/pages/ProductsPage.jsx';
 import ProductDetailsPage from '@features/products/pages/ProductDetailsPage.jsx';
 import CategoriesPage from '@features/categories/pages/CategoriesPage.jsx';
 import DiscountsPage from '@features/discounts/pages/DiscountsPage.jsx';
+import SaleSection from '@common/components/layout/SaleSection';
 
 const App = () => (
   <div className="app">
@@ -20,6 +21,7 @@ const App = () => (
       <Route path="/sales" element={<DiscountsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    <SaleSection />
     <Footer />
   </div>
 );
