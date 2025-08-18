@@ -18,7 +18,7 @@ export default function HomePage() {
         </div>
       </div>
     {/* <h1>Welcome to Garden Products</h1> */}
-    <ProductOfDayModal />
+
   </section>
 );
 }
