@@ -3,7 +3,7 @@
 }
 
 .hero {
-  background: url("../../../assets/imgs/banner.svg") center/cover no-repeat;
+  background: url("../../../assets/imgs/banner.jpg") center/cover no-repeat;
   min-height: 600px;
   display: flex;
   align-items: center;
