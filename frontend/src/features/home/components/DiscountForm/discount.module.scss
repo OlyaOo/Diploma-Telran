@@ -23,16 +23,7 @@ div.render :global {
             }
 
             border-radius: 12px;
-            background:
-            /* top */
-            linear-gradient(188.53deg, rgba(11, 113, 11, 0.45) 32.63%, rgba(51, 153, 51, 0.45) 98.96%),
-            /* middle */
-            linear-gradient(9.54deg, rgba(135, 147, 61, 0.60) -0.68%, rgba(85, 97, 11, 0.60) 66.66%),
-            /* base (flat linear) */
-            linear-gradient(0deg, #5D6913, #5D6913);
-            background-blend-mode: soft-light,
-            multiply,
-            normal;
+            background:#5D6913;
 
 
 
