@@ -1,10 +1,12 @@
 import React from 'react';
 import ProductOfDayModal from '../components/ProductOfDayModal.jsx';
+import DiscountBlock from '../components/DiscountForm/DiscountBlock.jsx';
 
 const HomePage = () => (
-  <section>
-    <h1>Welcome to Garden Products</h1>
-    <ProductOfDayModal />
+  <section className="home">
+    <div className="home__container">
+      <DiscountBlock />
+    </div>
   </section>
 );
 
