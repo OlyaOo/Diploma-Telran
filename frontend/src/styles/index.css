@@ -5,8 +5,17 @@
   --card-bg: #F2F6D3;
 }
 
+.app {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+}
+
 body {
-  margin: 0;
+  width: 100%;
+  height: 100%;
   font-family: sans-serif;
 }
 
@@ -82,6 +91,8 @@ body.dark {
   cursor: pointer;
 }
 
+
+
 .map-container {
   margin-top: 32px;
 }
@@ -121,15 +132,16 @@ body.dark {
 
 .sale-section {
   background: var(--footer-bg);
-  margin: 32px;
-  max-width: 100%;
+  margin: 32px 0;
+  width: 100%;
 }
 
 .sale-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .sale-title {
@@ -142,17 +154,20 @@ body.dark {
   font-size: 16px;
   border: 0;
   cursor: pointer;
+  
 }
 
 .sale-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr) );
+  gap: 20px;
+  padding: 32px 20px 20px 20px;
 }
 
 .product-discount {
   position: absolute;
-  margin: 16px 232px 232px 16px;
+  top: 16px;
+  left: 16px;
   background-color: #F26D22;
   color: #FFFFFF;
   padding: 4px 8px;
@@ -162,7 +177,8 @@ body.dark {
 
 .favorite-btn {
   position: absolute;
-  margin: 18px 18px 228px 254px;
+  top: 18px;
+  right: 18px;
   cursor: pointer;
   background: none;
   border: none;
@@ -170,8 +186,10 @@ body.dark {
 
 .add-to-cart {
   position: absolute;
-  margin: 74px 16px 162px 252px;
+  top: 74px;
+  right: 18px;
   border: none;
+  background: none;
   cursor: pointer;
 }
 
@@ -180,14 +198,17 @@ body.dark {
   padding: 20px 32px 16px 32px;
   font-size: 20px;
   color: #282828;
-  
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-price {
   display: flex;
   margin-left: 32px;
   align-items: baseline;
-  gap: 16px;
+  gap: 12px;
   padding-bottom: 20px;
 }
 
@@ -203,18 +224,26 @@ body.dark {
   font-size: 20px;
 }
 
-
-
-@media (max-width: 728px){
-  .sale-grid{
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap-md);
-  }
+.product-card {
+  width: 100%;       
+  position: relative; 
 }
 
-@media (max-width: 360px){
-  .sale-grid{
-    grid-template-columns:  1fr;
-    gap: var(--gap-md);
-  }
+.product-img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
 }
+
+@media (max-width: 1000px) {
+  .sale-grid { grid-template-columns: repeat(2, minmax(0, 1fr));  }
+}
+
+
+@media (max-width: 480px) {
+  .sale-grid { grid-template-columns: 1fr;
+   }
+}
+
+
+
