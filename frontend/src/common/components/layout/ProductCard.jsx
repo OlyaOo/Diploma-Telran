@@ -1,6 +1,6 @@
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
-import DiscountBadge from './DiscountPrice'; // ✅ правильный импорт
+import DiscountBadge from './DiscountPrice'; // 
 
 const ProductCard = ({ id, title, price, discont_price, image }) => {
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3333';
