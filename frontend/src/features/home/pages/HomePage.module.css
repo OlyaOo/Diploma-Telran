@@ -3,53 +3,49 @@
 }
 
 .hero {
-  background: url("../../../assets/imgs/banner.jpg") center/cover no-repeat;
+  background: url("../../../assets/imgs/banner_360.jpg") center/cover no-repeat;
   min-height: 600px;
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.hero .container {
-  padding-top: 80px;
-  padding-bottom: 310px;
-  padding-left: 40px;
-}
-
-.hero-text {
-  color: #FFFFFF;
-  font-weight: 700;
-  height: 212px;
+.container {
+  padding: 50px 20px 251px;
 }
 
 body.dark-theme .hero-text {
   background: rgba(0, 0, 0, .45);
+  border-radius: 8px;
+  padding: 8px;
 }
 
 .hero-text h1 {
   margin: 0;
-  font-size: 96px;
-  line-height: 1.2;
+  font-size: 52px;
+  line-height: 1.1;
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 .btn-checkout {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 218px;
-  height: 58px;
+  min-inline-size: 199px;
   background: #92A134;
   color: #fff;
   text-decoration: none;
   border: 0;
-  padding: 16px 56px;
+  padding: 12px 52px;
   border-radius: 6px;
-  margin-top: 40px;
+  margin-top: 24px;
+  cursor: pointer;
 }
 
 .btn-checkout__text {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
   /* избегаем «прыжков» по высоте */
 }
@@ -64,30 +60,84 @@ body.dark-theme .hero-text {
 }
 
 .btn-checkout:focus-visible {
-  /* доступный, но ненавязчивый фокус вместо «чёрной полоски» */
+  /* ненавязчивый фокус вместо «чёрной рамки вокруг кнопки» */
   box-shadow: 0 0 0 3px rgba(146, 161, 52, 0.35);
   outline: none;
 }
 
 /* ===== Адаптив ===== */
 
-@media (max-width: 1000px) {
-  .hero-text h1 { font-size: 34px; }
+/* ===== ≥480px ===== */
+@media (min-width: 480px) {
+  .hero {
+    background-image: url("../../../assets/imgs/banner_480.jpg");
+    min-height: 600px;
+  }
+
+  .container {
+    padding: 50px 33px 215px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 60px;
+  }
 }
 
-@media (max-width: 768px) {
-  .hero { min-height: 320px; }
-  .hero-text { max-width: 560px; }
-  .hero-text h1 { font-size: 28px; }
+/* ===== ≥768px (планшет) ===== */
+@media (min-width: 768px) {
+  .hero {
+    background-image: url("../../../assets/imgs/banner_768.jpg");
+    min-height: 634px;
+  }
+
+  .container {
+    padding: 60px 20px 326px;
+  }
+
+  .hero-text h1 {
+    font-size: 64px;
+  }
+
+  .btn-checkout {
+    padding: 16px 56px;
+    margin-top: 40px;
+    min-inline-size: 218px;
+  }
+
+  .btn-checkout__text {
+    font-size: 20px;
+  }
 }
 
-@media (max-width: 480px) {
-  .hero { min-height: 280px; }
-  .hero-text { padding: 16px; }
-  .hero-text h1 { font-size: 24px; }
+/* ===== ≥1000px (малые десктопы) ===== */
+@media (min-width: 1000px) {
+  .hero {
+    background-image: url("../../../assets/imgs/banner_1000.jpg");
+    min-height: 476px;
+  }
+
+  .container {
+    padding: 60px 20px 120px;
+  }
+
+  .hero-text h1 {
+    font-size: 87px;
+  }
+
 }
 
-@media (max-width: 360px) {
-  .hero { min-height: 240px; }
-  .hero-text h1 { font-size: 20px; }
+/* ===== ≥1440px (текущий макет) ===== */
+@media (min-width: 1440px) {
+  .hero {
+    background-image: url("../../../assets/imgs/banner_1440.jpg");
+    min-height: 600px;
+  }
+
+  .container {
+    padding: 80px 40px 210px 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 96px;
+  }
 }
