@@ -1,13 +1,12 @@
 import React from "react";
+import "./CategoriesItems.css"; 
 
-const CategoriesItems = ({ image, title, count = null, isHomePage = true }) => {
-    if (isHomePage) {
-        return <p>{title}</p>;
-    }
-    return (
+const CategoriesItems = ({ image, title, count, isHomePage }) => {
+        return (
             <div className="category-item">
                 <img src={image} alt={title} />
-                <p>{title}</p>
+                <h3>{title}</h3>
+                <p>Items: {count}</p>
                 </div>
     );
 };
