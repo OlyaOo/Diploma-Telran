@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CategoriesItems from "./CategoriesItems.jsx";
+import CategoriesHeader from "../../categories/components/CategoriesHeader.jsx";
 import "@styles/categories.css";
 
 const CategoriesList = () => {
@@ -22,9 +23,8 @@ const CategoriesList = () => {
 
      return (
         <section className="categories">
-            <h2>Categories</h2>
+            <CategoriesHeader />
             <div className="category-container">
-
                 {categories.map((category, index) => (
                     <CategoriesItems
                         key={index}
