@@ -33,7 +33,8 @@
 
 .header-center {
   grid-area: center;
-  display: none; /* скрыто по умолчанию */
+  display: none;
+  /* скрыто по умолчанию */
   flex-direction: column;
   align-items: center;
   gap: 8px;
@@ -61,7 +62,8 @@
   border: 0;
   padding: 0;
   border-radius: 9999px;
-  background: #858383; /* светлая тема — серый трек */
+  background: #858383;
+  /* светлая тема — серый трек */
   cursor: pointer;
   transition: background .25s;
 }
@@ -72,7 +74,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 6px; /* ЛУНА справа в светлой теме */
+  right: 6px;
+  /* ЛУНА справа в светлой теме */
   width: 14.87px;
   height: 14.87px;
   background: url("../../../assets/icons/Vector_moon.svg") center/contain no-repeat;
@@ -93,17 +96,20 @@
 
 /* Тёмная тема — заменила селектор на body.dark */
 :global(body.dark) :local(.switch) {
-  background: #fff; /* белый трек */
+  background: #fff;
+  /* белый трек */
 }
 
 :global(body.dark) :local(.switch__knob) {
-  background: #8B8B8B;/* серая ручка */
+  background: #8B8B8B;
+  /* серая ручка */
   transform: translateX(27.5px);
 }
 
 :global(body.dark) :local(.switch::after) {
   background-image: url("../../../assets/icons/Vector_sun.svg");
-  left: 6px; /* солнце слева */
+  left: 6px;
+  /* солнце слева */
   right: auto;
 }
 
@@ -127,7 +133,8 @@
 
 .nav a {
   text-decoration: none;
-  color: var(--link); /* меняется по теме */
+  color: var(--link);
+  /* меняется по теме */
   font-weight: 500;
   transition: color .3s, opacity .2s;
 }
@@ -146,7 +153,8 @@
   cursor: pointer;
   opacity: .9;
   transition: opacity .2s, filter .3s;
-  filter: var(--icon-filter); /* инверсия в тёмной теме */
+  filter: var(--icon-filter);
+  /* инверсия в тёмной теме */
 }
 
 .icon-btn:hover {
@@ -161,16 +169,37 @@
   background-image: url("../../../assets/icons/basket.svg");
 }
 
+.icon-burger {
+  display: inline-block;
+  /* показать на мобилке */
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: transparent;
+  filter: none;
+  background-image: url("../../../assets/icons/menu_burger.svg");
+}
+
+/* инверсия для тёмной темы */
+:global(body.dark) :local(.icon-burger) {
+  background-image: url("../../../assets/icons/menu_burger_dark.svg");
+}
+
+
 /* ===== ≥480 ===== */
 @media (min-width: 480px) {
-.header-grid {
+  .header-grid {
     row-gap: 0;
     column-gap: 28px;
   }
+
   .icon-btn {
     width: 32px;
     height: 32px;
   }
+  .icon-btn.icon-burger { 
+    width: 44px; 
+    height: 44px; }
 }
 
 /* ===== ≥768 (tablet) ===== */
@@ -187,9 +216,11 @@
     row-gap: 0;
     column-gap: 28px;
   }
-  .header-center{
+
+  .header-center {
     display: flex;
   }
+
   .logo img {
     height: 68px;
   }
@@ -215,11 +246,16 @@
     width: 44px;
     height: 44px;
   }
+
+  .icon-burger {
+    display: none;
+  }
+
 }
 
 /* ===== ≥1000 (small desktop) ===== */
 @media (min-width: 1000px) {
-  
+
   .header-left {
     gap: 20px;
   }
@@ -230,7 +266,8 @@
   }
 
   .switch::after {
-    right: 6px; /* ЛУНА справа в светлой теме */
+    right: 6px;
+    /* ЛУНА справа в светлой теме */
     width: 20px;
     height: 20px;
   }
@@ -241,7 +278,8 @@
     height: 28px;
   }
 
-  :global(body.dark) :local(.switch__knob) { /* серая ручка */
+  :global(body.dark) :local(.switch__knob) {
+    /* серая ручка */
     transform: translateX(30px);
   }
 
