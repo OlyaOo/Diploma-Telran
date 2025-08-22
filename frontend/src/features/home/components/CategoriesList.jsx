@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CategoriesItems from "./CategoriesItems.jsx";
-import CategoriesHeader from "../../categories/components/CategoriesHeader.jsx";
+import CategoriesHeader from "../../categories/components/CategoriesHeader";
 import "@styles/categories.css";
 
 const CategoriesList = () => {
