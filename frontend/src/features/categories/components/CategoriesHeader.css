@@ -31,8 +31,10 @@
     color: #8B8B8B;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
   background-color: transparent;
+  display: inline-block;
   font-weight: 500;
 }
 
@@ -46,7 +48,9 @@
     line-height: 105%;
   }
   .all-categories-btn {
-    font-size: 14px;
+        font-size: 14px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
   }
     .categories-header {
         max-width: 600px;
@@ -60,7 +64,10 @@
   }
   .all-categories-btn {
     font-size: 12px;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
   }
+  
     .categories-header {
         max-width: 100%;
         padding: 0.5rem;

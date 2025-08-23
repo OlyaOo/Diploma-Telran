@@ -17,7 +17,7 @@ const CategoriesHeader = () => {
             <h2 className="categories-title">Categories</h2>
             <hr className="separator-line" />
             <Link to="/categories" className="all-categories-btn">
-             All Categories ({items.length})
+             All Categories 
             </Link>
         </div>
     );
