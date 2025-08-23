@@ -2,6 +2,7 @@ import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from '@redux/slices/categorySlice.js';
 import { Link } from "react-router-dom";
+import './CategoriesHeader.css';
 
 const CategoriesHeader = () => {
     const dispatch = useDispatch();
