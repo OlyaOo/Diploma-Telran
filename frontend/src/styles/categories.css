@@ -1,0 +1,30 @@
+.category-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.category-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width: 200px;
+}
+
+.category-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.category-item h4 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  }
+
+.category-item p {
+  margin: 0;
+  color: #666;
+}

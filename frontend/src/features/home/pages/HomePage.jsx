@@ -17,7 +17,6 @@ const HomePage = () => (
         <ProductCard product={{
           id: 1,
           title: 'Sample Product',
-          image: 'images/product1.jpg',
           price: 240,
           discont_price: 199,
           image: "/product_img/sample.jpg" 
