@@ -1,6 +1,6 @@
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
-import DiscountBadge from './DiscountPrice'
+import DiscountBadge from '../../../features/discounts/components/DiscountPrice';
 import styles from './ProductCardMain.module.css'
 
 const ProductCard = ({ id, title, price, discont_price, image }) => {
