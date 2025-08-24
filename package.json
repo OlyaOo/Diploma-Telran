@@ -14,5 +14,9 @@
   },
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "sass": "^1.90.0"
   }
 }

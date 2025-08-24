@@ -1,0 +1,57 @@
+div.render :global {
+
+
+    & .form {
+
+        &__input {
+            width: 100%;
+            font-weight: 500;
+            border: 1px solid #FFFFF1;
+            color: #FFF;
+            padding: 16px 32px;
+            background: inherit;
+            font-size: 1.25em;
+            border-radius: 6px;
+
+            &::placeholder {
+                color: #FFF;
+            }
+        }
+
+        &__input--error {
+            border-color: #CB0505;
+        }
+
+        &__error {
+            max-width: 100%;
+            position: absolute;
+            font-size: 1em;
+            font-weight: 500;
+            color: #FFFFF1;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            & svg {
+                flex: 0 0 auto;
+            }
+
+            &-masage {
+                max-width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+        }
+    }
+
+}
+
+.render {
+    &:global(.form__field) {
+        width: 100%;
+        position: relative;
+
+    }
+}

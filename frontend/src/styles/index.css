@@ -1,5 +1,9 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-family: 'Montserrat', sans-serif; }
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;            
+}
 
 html, body, #root { height: 100%; }
 
@@ -8,3 +12,4 @@ body {
   color: var(--text);
   transition: background var(--transition-fast), color var(--transition-fast);
 }
+
