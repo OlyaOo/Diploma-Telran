@@ -1,35 +1,32 @@
-.sale-section {
-  background: var(--footer-bg);
-  margin: 32px 0;
-  width: 100%;
-}
+
 
 .sale-header {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: end;
-  padding-left: 20px;
+  padding-left: 40px;
   padding-right: 20px;
 }
 
 .sale-title {
-  color: #424436;
+  color: var(--text-color #424436);
   font-size: 64px;
 }
 
 .all-sales-btn {
-  color: #8B8B8B;
+  color: var(--label-color);
   font-size: 16px;
   border: 0;
   cursor: pointer;
-  
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .sale-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr) );
   gap: 20px;
-  padding: 32px 20px 20px 20px;
+  padding: 0 20px 0 40px;
 }
 
 

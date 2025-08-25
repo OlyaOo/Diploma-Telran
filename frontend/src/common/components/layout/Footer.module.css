@@ -1,7 +1,6 @@
 .footer {
-  padding: 0 40px;
   color: var(--text-color);
-  background: var(--footer-bg);
+  padding-left: 40px;
 }
 
 .contact-grid {

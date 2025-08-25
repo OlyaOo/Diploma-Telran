@@ -7,11 +7,12 @@
   display: flex;
   align-items: baseline;
   gap: 12px;
+  padding: 0 32px 32px 32px;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: #8B8B8B;
+  color: var(--label-color);
   font-size: 20px;
   
 }

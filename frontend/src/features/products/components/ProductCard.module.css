@@ -23,7 +23,7 @@
   text-overflow: ellipsis;
   font-size: 20px;
   font-weight: 500;
-  padding: 0 32px 16px 32px;
+  padding: 20px 20px 12px 20px;
 }
 
 
@@ -31,7 +31,7 @@
 .priceBlock {
   display: flex;
   align-items: baseline;
-  padding: 0 32px 32px 32px;
+  padding: 0 20px 20px 20px;
   gap: 12px;
 }
 
@@ -43,7 +43,7 @@
 
 .oldPrice {
   text-decoration: line-through;
-  color: #8B8B8B;
+  color: var(--label-color);
   font-size: 20px;
   font-weight: 500;
 }

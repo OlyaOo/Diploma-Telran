@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import ProductCard from './ProductCardMain';
 import styles from './SaleSection.module.css';
+import Title from '../ui/title';
 
 const SaleSection = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const SaleSection = () => {
   return (
     <section className={styles['sale-section']}>
       <div className={styles['sale-header']}>
-        <h2 className={styles['sale-title']}>Sale</h2>
+        <Title text="Sale" />
         <div className={styles['sale-line']} />   
         <button className={styles['all-sales-btn']}>All sales</button>
       </div>

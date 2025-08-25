@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@api/axios.js';
 
-export const fetchProducts = createAsyncThunk('products/fetch', async ({ categoryId, minPrice, maxPrice, discounted, sort }) => {
+export const fetchProducts = createAsyncThunk('products/fetch', async ({ categoryId, minPrice, maxPrice, discounted, sort }= { }) => {
 
   const endpoint = categoryId ? `/categories/${categoryId}` : '/products/all';
   const { data } = await api.get(endpoint, {
