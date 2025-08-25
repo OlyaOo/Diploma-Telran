@@ -7,7 +7,9 @@ const Breadcrumbs = () => {
   return (
     <nav aria-label="breadcrumb">
       <ol>
-        <li><Link to="/">Home</Link></li>
+        {paths.length !== 0 && (
+          <li><Link to="/">Home</Link></li>
+        )}
         {paths.map((segment, idx) => {
           const url = '/' + paths.slice(0, idx + 1).join('/');
           return (
