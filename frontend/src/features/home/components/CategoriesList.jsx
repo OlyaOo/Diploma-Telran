@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CategoriesItems from "./CategoriesItems.jsx";
 import CategoriesHeader from "../../categories/components/CategoriesHeader";
+import { Link } from "react-router-dom";
 import "@styles/categories.css";
+import "./CategoriesList.css";
 
 const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
@@ -50,6 +52,13 @@ const CategoriesList = () => {
                     <p>Loading categories...</p>
                 )}
                         </div>
+            <div className="all-categories-link">
+                {categories.length > 0 && (
+                    <Link to="/all-categories" className="all-categories-btn">
+                        All Categories
+                        </Link>
+                        )}
+            </div>
                         </section>
                     );
                 };

@@ -13,13 +13,16 @@ const CategoriesHeader = () => {
     }, [dispatch]);
 
     return (
+        <>
+        <div className="full-width-line"></div>
         <div className="categories-header">
             <h2 className="categories-title">Categories</h2>
-            <hr className="separator-line" />
-            <Link to="/categories" className="all-categories-btn">
+            <div className="separator-line"></div>
+            <Link to="/all-categories" className="all-categories-btn">
              All Categories 
             </Link>
         </div>
+        </>
     );
 };
 
