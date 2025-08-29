@@ -17,13 +17,15 @@ div.render :global {
                 padding: 2em 1.25em;
             }
 
+            border-radius: 12px;
+            background:#5D6913;
+
             @media (max-width: 480px) {
                 padding: 1.5em 1.25em 0px 1.25em;
                 transform: translate(0px);
             }
 
-            border-radius: 12px;
-            background:#5D6913;
+            
 
 
 
