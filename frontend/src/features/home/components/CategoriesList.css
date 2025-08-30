@@ -11,6 +11,13 @@
   margin: 1 rem 0;
 }
 
+.category-line {
+  flex-grow: 1; /* Розтягує лінію на всю доступну ширину */
+  height: 1px;
+  background-color: #ddd; /* Колір лінії, за потреби змінити */
+}
+
+
 .all-categories-btn {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;

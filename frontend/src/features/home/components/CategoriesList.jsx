@@ -7,6 +7,7 @@ import "./CategoriesList.css";
 
 const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
+    сonst [loading, setLoading] = useState(true);
 
     useEffect(() => {
         let isMounted = true;
@@ -24,7 +25,11 @@ const CategoriesList = () => {
           }
          } catch (error) {
             console.error("Error loading categories:", error);
+            } finally {
+                if (isMounted) {
+                    setLoading(false);
             }
+        }
         };
 
         fetchCategories();
@@ -38,8 +43,9 @@ const CategoriesList = () => {
         <section className="categories">
             <CategoriesHeader />
             <div className="category-container">
-                {categories.length > 0 ? (
-                    categories.map((category) => (
+                {loading ? ( <p>Loading categories...</p>
+                ) : categories.length > 0 ? (
+                {categories.map((category) => (
                     <CategoriesItems
                         key={category.id}
                         image={`http://localhost:3333${category.image}`}
@@ -49,10 +55,10 @@ const CategoriesList = () => {
                     />
                 ))
                 ) : (
-                    <p>Loading categories...</p>
+                    <p>No categories avaible.</p>
                 )}
                         </div>
-            <div className="all-categories-link">
+            <div className="all-categories-wrapper">
                 {categories.length > 0 && (
                     <Link to="/all-categories" className="all-categories-btn">
                         All Categories
