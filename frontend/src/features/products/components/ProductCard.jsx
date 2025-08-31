@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
+import FavoriteButton from '../../favorites/components/favorites/FavoriteButton';
+
 
 const ProductCard = ({ product }) => {
   const imageUrl = `${api.defaults.baseURL}/${product.image}`;
@@ -19,6 +21,8 @@ const ProductCard = ({ product }) => {
       ) : (
         <p>{formatPrice(product.price)}</p>
       )}
+      <FavoriteButton productId={product.id} className='' />
+      {/* указать нужное имя, когда появится класс в css */}
     </div>
   );
 };
