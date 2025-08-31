@@ -1,31 +1,30 @@
 .footer {
   color: var(--text-color);
-  padding-left: 40px;
+  padding-inline: 40px;
 }
 
-.contact-grid {
+.contactGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   margin-bottom: 32px;
 }
 
-.footer-phone,
-.footer-socials,
-.footer-hours,
-.footer-address {
+.footerPhone,
+.footerSocials,
+.footerHours,
+.footerAddress {
   background-color: var(--card-bg);
-  border-radius: 16px;
   padding: 32px;
 }
 
-.contact-label {
+.contactLabel {
   font-size: 20px;
   color: var(--label-color);
   padding-bottom: 16px;
 }
 
-.footer-phone a {
+.footerPhone a {
   display: block;
   font-weight: 600;
   color: var(--text-color);
@@ -33,58 +32,63 @@
   text-decoration: none;
 }
 
-.footer-address p:nth-child(2),
-.footer-hours p:nth-child(2) {
+.footerAddress p:nth-child(2),
+.footerHours p:nth-child(2) {
   color: var(--text-color);
   font-size: 40px;
 }
 
-.social-icons {
+.socialIcons {
   display: flex;
   align-items: center;
   gap: 19px;
-  
 }
 
-.social-icon {
+.socialIcon {
   width: 32px;
   height: 32px;
   fill: var(--text-color);
   cursor: pointer;
 }
 
-
-
-.map-container {
+.mapContainer {
   margin-top: 32px;
 }
 
-.map-container iframe {
+.mapContainer iframe {
   width: 100%;
   height: 350px;
   border: 0;
   border-radius: 16px;
 }
 
-
+@media (max-width: 1000px) {
+  .footer {
+    padding-inline: 20px;
+  }
+}
 
 @media (max-width: 768px) {
-  .footer  {
-    padding: 16px;
-  }
-
-  .contact-grid {
+  .contactGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .footer-phone a,
-  .footer-address p:nth-child(2),
-  .footer-hours p:nth-child(2) {
-    font-size: 28px;
   }
   
 }
 
+@media (max-width: 480px) {
+  .footerPhone a {
+    font-size: 28px;
+  }
 
+  .footerSocials {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .footerPhone,
+  .footerSocials,
+  .footerHours,
+  .footerAddress {
+    padding: 20px;
+  }
+}

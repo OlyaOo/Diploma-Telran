@@ -9,6 +9,7 @@ import PriceRange from '../../filterSort/PriceRange.jsx';
 import DiscountedFilter from '../../filterSort/DiscountedFilter.jsx';
 import SortComponent from '../../filterSort/SortComponent.jsx';
 
+
 const ProductsPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -52,7 +53,7 @@ const ProductsPage = () => {
         <SortComponent onSortChange={setSort} />
       </div>
       <div className={styles.productGrid}>
-        {filteredSortedItems.slice(0, 8).map(prod => (
+        {filteredSortedItems.slice(0, 35).map(prod => (
           <ProductCard key={prod.id} product={prod} />
         ))}
       </div>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '@redux/slices/productSlice.js';
-import ProductCard from './ProductCardMain';
+
 import styles from './SaleSection.module.css';
-import Title from '../ui/title';
+import Title from '@/common/components/ui/title.jsx';
+import ProductCard from '@/common/components/layout/ProductCardMain';
 
 const SaleSection = () => {
   const dispatch = useDispatch();
@@ -14,17 +15,17 @@ const SaleSection = () => {
   }, [dispatch]);
 
   const discountItems = items.filter(p => p.discont_price && p.discont_price < p.price);
-  const displayed = discountItems.slice(6, 10);
+  const displayed = discountItems.slice(4, 8);
 
   return (
-    <section className={styles['sale-section']}>
-      <div className={styles['sale-header']}>
+    <section className={styles.saleSection}>
+      <div className={styles.saleHeader}>
         <Title text="Sale" />
-        <div className={styles['sale-line']} />   
-        <button className={styles['all-sales-btn']}>All sales</button>
+        <div className={styles.saleLine} />   
+        <button className={styles.allSalesBtn}>All sales</button>
       </div>
 
-      <div className={styles['sale-grid']}>
+      <div className={styles.saleGrid}>
         {displayed.map(prod => (
           <ProductCard
             key={prod.id}

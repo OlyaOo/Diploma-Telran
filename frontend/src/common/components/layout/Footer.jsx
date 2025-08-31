@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../ui/title';
+import Title from '@/common/components/ui/title.jsx';
 import InstagramIcon from '../../../assets/icons/instagram.svg?react';
 import WhatsappIcon from '../../../assets/icons/whatsapp.svg?react';
 import styles from './Footer.module.css';
@@ -13,28 +13,28 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Title text="Contact" />
-      <div className={styles['contact-grid']}>
-        <div className={styles['footer-phone']}>
-          <p className={styles['contact-label']}>Phone</p>
+      <div className={styles.contactGrid}>
+        <div className={styles.footerPhone}>
+          <p className={styles.contactLabel}>Phone</p>
           <a href={`tel:${cleanPhoneNumber}`}>{phoneNumber}</a>
         </div>
-        <div className={styles['footer-socials']}>
-          <p className={styles['contact-label']}>Socials</p>
-          <div className={styles['social-icons']}>
-            <InstagramIcon className={styles['social-icon']} />
-            <WhatsappIcon className={styles['social-icon']} />
+        <div className={styles.footerSocials}>
+          <p className={styles.contactLabel}>Socials</p>
+          <div className={styles.socialIcons}>
+            <InstagramIcon className={styles.socialIcon} />
+            <WhatsappIcon className={styles.socialIcon} />
           </div>
         </div>
-        <div className={styles['footer-address']}>
-          <p className={styles['contact-label']}>Address</p>
+        <div className={styles.footerAddress}>
+          <p className={styles.contactLabel}>Address</p>
           <p>{address}</p>
         </div>
-        <div className={styles['footer-hours']}>
-          <p className={styles['contact-label']}>Working Hours</p>
+        <div className={styles.footerHours}>
+          <p className={styles.contactLabel}>Working Hours</p>
           <p>{workingHours}</p>
         </div>
       </div>
-      <div className={styles['map-container']}>
+      <div className={styles.mapContainer}>
         <iframe
           src="https://www.google.com/maps?q=Starta Institute by Tel-Ran,%2010785%20Berlin&z=16&output=embed"
           loading="lazy"

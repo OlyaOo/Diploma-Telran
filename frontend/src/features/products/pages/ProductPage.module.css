@@ -1,7 +1,4 @@
 .product {
-  display: flex; 
-  flex-direction: column; 
-  gap: 20px; 
   padding-inline: 40px; 
 }
 
@@ -12,7 +9,7 @@
   align-items: center;
   justify-content: start;
   gap: 40px; 
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 
@@ -20,11 +17,24 @@
   display: grid; 
   gap: 32px;
   grid-template-columns: repeat(4, minmax(0, 1fr)); 
-  justify-content: center;
+  margin: 0 auto;
+  
 }
 
+@media (max-width: 1000px) {
+.filterSection {
+  padding-bottom: 32px;
+}
 
-@media (max-width: 868px) {
+  .productGrid {
+    gap: 20px;
+  }
+  .product {
+  padding-inline: 20px; 
+}
+}
+
+@media (max-width: 768px) {
   .filterSection {
     grid-template-rows: auto auto; 
     gap: 16px;
@@ -46,17 +56,29 @@
     grid-template-columns: 1fr; 
     grid-template-rows: auto auto auto;
     gap: 16px;
-    max-width: 440px;
-    min-width: 320px;
+    padding-bottom: 24px;
   }
 
   .filterSection > :nth-child(3) {
     grid-row: 3;
     grid-column: 1;
   }
+}
+@media (max-width: 360px) {
 
+  .filterSection {
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto auto;
+    gap: 16px;
+    
+  }
+
+  .filterSection > :nth-child(3) {
+    grid-row: 3;
+    grid-column: 1;
+  }
   .productGrid {
     grid-template-columns: 1fr; 
-    justify-items: center; 
+    
   }
 }
