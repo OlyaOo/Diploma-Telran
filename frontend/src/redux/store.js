@@ -22,13 +22,13 @@ function loadFavorites() {
 
 // middleware for saving favorites to localStorage
 const saveFavoritesMw = (storeApi) => (next) => (action) => {
-  const result = next(action);
+  const result = next(action); // 1) pass the action to the reducer
 
   // react only to favorite slice actions
-  if (action.type.startsWith('favorites/')) {
+  if (action.type.startsWith('favorites/')) { // 2) react only to the necessary actions
     try {
-      const ids = storeApi.getState().favorites.items;
-      localStorage.setItem('favorites', JSON.stringify(ids));
+      const ids = storeApi.getState().favorites.items; // 3) taking the NEW state
+      localStorage.setItem('favorites', JSON.stringify(ids)); // 4) save to localStorage
     } catch {
       // silently ignore access/quota errors
     }
