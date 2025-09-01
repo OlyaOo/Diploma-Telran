@@ -24,10 +24,10 @@ div.render :global {
                 transform: translate(0px);
                 margin-top: 56px;
             }
-
+& {
             border-radius: 12px;
             background:#5D6913;
-
+}
 
 
 
