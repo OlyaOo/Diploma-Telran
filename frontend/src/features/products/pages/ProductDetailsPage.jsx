@@ -1,15 +1,23 @@
-import React, { useEffect } from 'react';
+// src/features/products/pages/ProductDetailsPage.jsx
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductById } from '@redux/slices/productSlice.js';
+import { addToCart } from '@redux/slices/cartSlice.js';
 import { Loader } from '@common/components';
 import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
+import DiscountBadge from '../../discounts/components/DiscountPrice';
+import HeartIcon from '@/assets/icons/heart.svg?react';
+import styles from './ProductDetailsPage.module.css';
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { current, status } = useSelector(state => state.products);
+
+  const [quantity, setQuantity] = useState(1);
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   useEffect(() => {
     dispatch(fetchProductById(id));
@@ -19,19 +27,68 @@ const ProductDetailsPage = () => {
 
   const imageUrl = `${api.defaults.baseURL}/${current.image}`;
 
+  // Функция для добавления продукта в корзину: диспатчит экшен addToCart с копией текущего продукта и выбранным количеством
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...current, quantity }));
+  };
+
+  // Функция для увеличения количества: обновляет состояние quantity, увеличивая предыдущее значение на 1
+  const handleIncrement = () => setQuantity(prev => prev + 1);
+
+  // Функция для уменьшения количества: обновляет состояние quantity, уменьшая предыдущее значение на 1, но не ниже 1
+  const handleDecrement = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1));
+
+  const description = current.description || '';
+  const truncatedDescription = description.length > 200 ? description.slice(0, 200) + '...' : description;
+
   return (
-    <div className="product-details">
-      <img src={imageUrl} alt={current.title} />
-      <h2>{current.title}</h2>
-      {current.discont_price ? (
-        <p>
-          <span>{formatPrice(current.discont_price)}</span>{' '}
-          <span className="old-price">{formatPrice(current.price)}</span>
-        </p>
-      ) : (
-        <p>{formatPrice(current.price)}</p>
-      )}
-      <p>{current.description}</p>
+    <div className={styles.productDetails}>
+      <img src={imageUrl} alt={current.title} className={styles.productImg} />
+      <div className={styles.content}>
+        <div className={styles.upperContent}>  
+          <div className={styles.headerRow}>
+            <h2 className={styles.title}>{current.title}</h2>
+            <button className={styles.favoriteBtn}><HeartIcon className={styles.icon} /></button>
+          </div>
+          <div className={styles.rightColumn}>
+            <div className={styles.priceContainer}>
+              {current.discont_price ? (
+                <>
+                  <span className={styles.discountedPrice}>{formatPrice(current.discont_price)}</span>
+                  <span className={styles.oldPrice}>{formatPrice(current.price)}</span>
+                  <DiscountBadge
+                    price={current.price}
+                    discont_price={current.discont_price}
+                    className={styles.customDiscountBadge}
+                  />
+                </>
+              ) : (
+                <span className={styles.discountedPrice}>{formatPrice(current.price)}</span>
+              )}
+            </div>
+            <div className={styles.quantityContainer}>
+              <button onClick={handleDecrement} className={styles.quantityButton}>-</button>
+              <input type="number" value={quantity} readOnly className={styles.quantityInput} />
+              <button onClick={handleIncrement} className={styles.quantityButton}>+</button>
+              <button onClick={handleAddToCart} className={styles.addToCart}>Add to cart</button>
+            </div>
+          </div>
+        </div>  
+        <div className={styles.descriptionBlock}>
+          <h3 className={styles.descriptionTitle}>Description</h3>
+          <p className={styles.descriptionText}>
+            {showFullDescription ? description : truncatedDescription}
+          </p>
+          {!showFullDescription && description.length > 200 && (
+            <button
+              onClick={() => setShowFullDescription(true)}
+              className={styles.readMore}
+            >
+              Read more
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
