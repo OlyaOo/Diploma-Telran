@@ -1,0 +1,95 @@
+.productCard {
+  position: relative;
+  width: 100%;
+  max-width: 316px; 
+}
+
+.productLink {
+  text-decoration: none;
+}
+
+.productImg {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.productName {
+  overflow: hidden;
+  color: var(--text-color, #424436);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px 20px 12px 20px;
+}
+
+
+
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  padding: 0 20px 20px 20px;
+  gap: 12px;
+}
+
+.newPrice {
+  font-size: 40px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: var(--label-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.add-to-cart {
+  position: absolute;
+  top: 74px;
+  right: 16px; 
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.icon {
+  max-width: 40px;
+}
+
+@media (max-width: 1000px) { 
+  .productCard {
+  width: 100%;
+  max-width: 225px; 
+}
+} 
+@media (max-width: 768px) { 
+  .productCard {
+  width: 100%;
+  max-width: 354px; 
+}
+} 
+@media (max-width: 480px) { 
+  .productCard {
+  width: 100%;
+  max-width: 210px; 
+}
+} 
+@media (max-width: 360px) { 
+  .productCard {
+  width: 100%;
+  max-width: 320px; 
+ 
+}
+}
