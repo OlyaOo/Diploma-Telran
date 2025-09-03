@@ -3,13 +3,13 @@ import api from '@api/axios.js';
 
 export const fetchCategories = createAsyncThunk('categories/fetch', async () => {
   const { data } = await api.get('/categories/all');
-  console.log('API response:', data); // Діагностика
+  console.log('API response:', data); 
   return data;
 });
 
 const categorySlice = createSlice({
   name: 'categories',
-  initialState: { items: [], status: 'idle', error: null }, // Додано status і error
+  initialState: { items: [], status: 'idle', error: null }, 
   reducers: {},
   extraReducers: builder => {
     builder

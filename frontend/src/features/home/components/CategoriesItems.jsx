@@ -6,8 +6,7 @@ const CategoriesItems = ({ image, title, id, isHomePage }) => {
   const baseUrl = "http://localhost:3333";
 
   const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
-  console.log(`Rendering category ${id}: image URL = ${fullImageUrl}`); // Діагностика
-
+  console.log(`Rendering category ${id}: image URL = ${fullImageUrl}`); 
   return (
     <Link to={`/category/${id}`} className="category-item">
       <div className="image-wrapper">
@@ -17,9 +16,9 @@ const CategoriesItems = ({ image, title, id, isHomePage }) => {
           className="category-image"
           onError={(e) => {
             console.error(`Failed to load image for category ${id}: ${e.target.src}`);
-            e.target.src = "/images/fallback.jpeg"; // Замініть на реальний шлях до заглушки в public/
+            e.target.src = "/images/fallback.jpeg"; 
           }}
-          onLoad={() => console.log(`Image loaded for category ${id}`)} // Діагностика
+          onLoad={() => console.log(`Image loaded for category ${id}`)}
         />
       </div>
       <p className="category-name-outside">{title || "No title"}</p>

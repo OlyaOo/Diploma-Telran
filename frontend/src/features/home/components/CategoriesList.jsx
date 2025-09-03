@@ -15,7 +15,7 @@ const CategoriesList = () => {
 
   console.log('Redux state:', { items, status, error });
 
-  // Fallback-дані для відображення категорій
+  
   const fallbackCategories = [
     { id: 1, title: "Annuals", image: "/category_img/1.jpeg" },
     { id: 2, title: "Nursery", image: "/category_img/2.jpeg" },
