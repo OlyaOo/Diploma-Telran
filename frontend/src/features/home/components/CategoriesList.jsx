@@ -1,84 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "@redux/slices/categorySlice";
 import CategoriesItems from "./CategoriesItems.jsx";
-import CategoriesHeader from "../../categories/components/CategoriesHeader";
-import { Link } from "react-router-dom";
-import "@styles/categories.css";
 import "./CategoriesList.css";
 
 const CategoriesList = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const { items, status, error } = useSelector((state) => state.categories || { items: [], status: 'idle', error: null });
 
   useEffect(() => {
-    let isMounted = true;
-    const fetchCategories = async () => {
-      try {
-        const response = await fetch("http://localhost:3333/categories/all");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        console.log("Fetched categories:", data);
-        if (isMounted) {
-          const shuffled = data.sort(() => 0.5 - Math.random());
-          setCategories(shuffled.slice(0, 4));
-        }
-      } catch (error) {
-        console.error("Error loading categories:", error);
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
+    console.log('Dispatching fetchCategories...');
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
-    fetchCategories();
+  console.log('Redux state:', { items, status, error });
 
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  // Fallback-дані для відображення категорій
+  const fallbackCategories = [
+    { id: 1, title: "Annuals", image: "/category_img/1.jpeg" },
+    { id: 2, title: "Nursery", image: "/category_img/2.jpeg" },
+    { id: 3, title: "Garden Art", image: "/category_img/3.jpeg" },
+    { id: 4, title: "Plant Care", image: "/category_img/4.jpeg" },
+  ];
+
+  const categoriesToShow = items.length > 0 ? items.slice(0, 4) : fallbackCategories;
 
   return (
-    <section className="categories-section">
+    <div className="categories-section">
       <div className="category-title-block">
         <h2 className="category-title">Categories</h2>
         <div className="category-line-block">
-          <div className="category-line"></div>
+          <span className="category-line"></span>
           <div className="all-categories-desktop">
-            <Link to="/all-categories" className="all-categories-btn">
-              All Categories
-            </Link>
+            <a href="/categories" className="all-categories-btn">
+              All categories
+            </a>
           </div>
         </div>
       </div>
-      <div className="categories-list-container">
-        {loading ? (
-          <p>Loading categories...</p>
-        ) : categories.length > 0 ? (
-          categories.map((category) => (
-            <CategoriesItems
-              key={category.id}
-              image={`http://localhost:3333${category.image}`}
-              title={category.title}
-              count={category.count || 0}
-              isHomePage={true}
-            />
-          ))
-        ) : (
-          <p>No categories available.</p>
-        )}
+      <div className="category-wrapper">
+        <div className="categories-list-container">
+          {status === 'loading' && <p>Loading categories...</p>}
+          {status === 'failed' && <p>Error: {error || 'Failed to load categories'}</p>}
+          {categoriesToShow.length > 0 ? (
+            categoriesToShow.map((category) => (
+              <CategoriesItems
+                key={category.id}
+                id={category.id}
+                image={category.image}
+                title={category.title}
+                isHomePage={true}
+              />
+            ))
+          ) : (
+            <p>No categories available</p>
+          )}
+        </div>
+        <div className="all-categories-mobile">
+          <a href="/categories" className="all-categories-btn">
+            All categories
+          </a>
+        </div>
       </div>
-      <div className="all-categories-mobile">
-        {categories.length > 0 && (
-          <Link to="/all-categories" className="all-categories-btn">
-            All Categories
-          </Link>
-        )}
-      </div>
-    </section>
+    </div>
   );
 };
 
 export default CategoriesList;
-
