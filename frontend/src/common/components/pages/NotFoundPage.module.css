@@ -39,7 +39,7 @@
 
 .textContainer {
   width: 760px;
-  height: 228px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,6 @@
 
 .textInnerContainer {
   width: 760px;
-  height: 138px;
   display: flex;
   flex-direction: column;
   align-items: center;
