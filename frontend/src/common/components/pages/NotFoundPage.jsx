@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import cactusImage from '../../../assets/images/cactus.png'; 
+import cactusImage from '../../../assets/imgs/cactus.png'; 
 import styles from './NotFoundPage.module.css';
 
 const NotFoundPage = () => (
