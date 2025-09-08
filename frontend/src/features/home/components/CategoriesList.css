@@ -14,9 +14,11 @@
 
 .category-title-block {
   display: flex;
-  align-items: flex-start;
+  justify-content: start;
+  align-items: center;
   width: 100%;
-  margin: 0 auto 1rem;
+  margin: 0 auto 40px;
+  gap: 32px;
 }
 
 .category-title {
@@ -173,5 +175,12 @@
 
   .categories-list-container img {
     max-height: 220px;
+  }
+}
+
+@media (max-width: 536px) {
+  .category-line-block {
+    display: none;
+
   }
 }

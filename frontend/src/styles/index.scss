@@ -106,7 +106,11 @@ body.dark {
 .section-title {
     font-size: 64px;
     color: var(--text-color);
-    padding-bottom: 32px;
+    padding-bottom: 40px;
+}
+
+.section-title.padding-0 {
+    padding-bottom: 0;
 }
 
 @media (max-width: 1000px) {
@@ -122,8 +126,11 @@ body.dark {
 }
 
 @media (max-width: 480px) {
-    .section-title {
+    section-title {
         padding-bottom: 24px;
+    }
+
+    .section-title {
         font-size: 48px;
     }
 }

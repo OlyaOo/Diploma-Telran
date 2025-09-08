@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "@redux/slices/categorySlice";
 import CategoriesItems from "./CategoriesItems.jsx";
 import "./CategoriesList.css";
+import TitleList from "@common/components/ui/title/TitleList.jsx";
 
 const CategoriesList = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const CategoriesList = () => {
 
   console.log('Redux state:', { items, status, error });
 
-  
+
   const fallbackCategories = [
     { id: 1, title: "Annuals", image: "/category_img/1.jpeg" },
     { id: 2, title: "Nursery", image: "/category_img/2.jpeg" },
@@ -27,17 +28,7 @@ const CategoriesList = () => {
 
   return (
     <div className="categories-section">
-      <div className="category-title-block">
-        <h2 className="category-title">Categories</h2>
-        <div className="category-line-block">
-          <span className="category-line"></span>
-          <div className="all-categories-desktop">
-            <a href="/categories" className="all-categories-btn">
-              All categories
-            </a>
-          </div>
-        </div>
-      </div>
+      <TitleList title="Categories" type="All categories " />
       <div className="category-wrapper">
         <div className="categories-list-container">
           {status === 'loading' && <p>Loading categories...</p>}

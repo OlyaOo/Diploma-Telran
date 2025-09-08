@@ -30,13 +30,12 @@ a {
     text-decoration: none;
 }
 
-
+.categoriesPage {
+    padding: var(--container-padding);
+}
 
 @media (max-width: 1000px) {
 
-    .categoriesPage {
-        padding: 0 20px 40px 20px;
-    }
 
     .categoryImg {
         height: 250px;
