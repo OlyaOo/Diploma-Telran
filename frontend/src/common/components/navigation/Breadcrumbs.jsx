@@ -23,7 +23,7 @@ const Breadcrumbs = () => {
 
   // Добавляем Home только если мы НЕ на главной
   if (!isHome) {
-    crumbs.push({ name: 'Home', url: '/' });
+    crumbs.push({ name: 'Main page', url: '/' });
   }
 
   if (paths[0] === 'categories') {
