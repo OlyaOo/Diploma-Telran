@@ -26,11 +26,11 @@ export default function HomePage() {
 
   <section className="home">
     <div className="home__container">
-      <h1>Welcome to Garten Products</h1>
+      {/* <h1>Welcome to Garten Products</h1> */}
       <ProductOfDayModal />
       <DiscountBlock />
       <CategoriesList />
-      <h2>Random Discounted Products</h2>
+      {/* <h2>Random Discounted Products</h2> */}
       <div className='discounted-products'>
         <ProductCard product={{
           id: 1,
