@@ -9,6 +9,14 @@
   background: var(--header-bg);
   min-height: 68px;
   transition: background .3s;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--header-separator, rgba(0, 0, 0, .08));
+}
+
+.noSeparator {
+  border-bottom-color: transparent;
 }
 
 .header-grid {
@@ -147,26 +155,63 @@
   width: 29.33px;
   height: 25.33px;
   display: inline-block;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
   cursor: pointer;
   opacity: .9;
-  transition: opacity .2s, filter .3s;
-  filter: var(--icon-filter);
-  /* инверсия в тёмной теме */
+  transition: opacity .2s;
+  position: relative;
 }
 
 .icon-btn:hover {
   opacity: .7;
 }
 
-.icon-heart {
+.icon-heart,
+.icon-cart {
+  background: none;
+}
+
+.icon-heart::before,
+.icon-cart::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* занять всю площадь родителя */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-heart::before {
   background-image: url("../../../assets/icons/favourite.svg");
 }
 
-.icon-cart {
+.icon-cart::before {
   background-image: url("../../../assets/icons/basket.svg");
+}
+
+.countBadge {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  transform: translate(50%, -50%);
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #92A134;
+  color: #FFFFF1;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  pointer-events: none;
+  box-shadow: 0 0 0 2px var(--header-bg, #FFFFF1);
+  z-index: 1;
+}
+
+/* ТЕМНАЯ ТЕМА: делаем иконки белыми */
+:global(body.dark) :local(.icon-heart::before),
+:global(body.dark) :local(.icon-cart::before) {
+  filter: invert(1);
 }
 
 .icon-burger {
@@ -197,9 +242,11 @@
     width: 32px;
     height: 32px;
   }
-  .icon-btn.icon-burger { 
-    width: 44px; 
-    height: 44px; }
+
+  .icon-btn.icon-burger {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 /* ===== ≥768 (tablet) ===== */
@@ -245,6 +292,15 @@
   .icon-btn {
     width: 44px;
     height: 44px;
+  }
+
+  .countBadge {
+    top: 14px;
+    right: 40px;
+    min-width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
   }
 
   .icon-burger {
