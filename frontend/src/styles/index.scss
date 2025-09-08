@@ -1,5 +1,139 @@
 @import url(reset.scss);
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: 'Montserrat';
+}
+
+:root {
+    --text-color: #424436;
+    --footer-bg: #fffff1;
+    --label-color: #8B8B8B;
+    --card-bg: #F2F6D3;
+    --bg: #fffff1;
+    --bg_dark: #424436;
+    --icon-fill: #424436;
+    --mt: 80px;
+    --items-gap: 32px;
+    --container-padding: 0 40px;
+}
+
+@media (max-width: 1000px) {
+    :root {
+        --mt: 60px;
+        --items-gap: 20px;
+        --container-padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --mt: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --mt: 56px;
+    }
+}
+
+body.dark {
+    --text-color: #FFFFFF;
+    --card-bg: #383A2C;
+    --icon-fill: #FFFFF1;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    width: 100%;
+    /* Добавил из твоего */
+    height: 100%;
+    /* Добавил из твоего */
+    background-color: var(--bg);
+    font-family: sans-serif;
+}
+
+body.dark {
+    background-color: var(--bg_dark);
+}
+
+@media (min-width: 480px) {
+    * {
+        font-size: 16px;
+    }
+
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1000px) {
+    * {
+        font-size: 18px;
+    }
+
+    html {
+        font-size: 18px;
+    }
+}
+
+.app {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 64px;
+    color: var(--text-color);
+    padding-bottom: 32px;
+}
+
+@media (max-width: 1000px) {
+    .section-title {
+        padding-bottom: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        padding-bottom: 24px;
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 360px) {
+    .section-title {
+        font-size: 40px;
+    }
+}
+
 .home__container {
-    padding: 0px 2.5em;
+    padding: var(--container-padding);
 }

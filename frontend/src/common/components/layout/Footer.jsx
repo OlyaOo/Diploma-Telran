@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '@/common/components/ui/title.jsx';
 import InstagramIcon from '../../../assets/icons/instagram.svg?react';
 import WhatsappIcon from '../../../assets/icons/whatsapp.svg?react';
-import styles from './Footer.module.css';
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   const phoneNumber = '+49 999 999 99 99';
