@@ -209,9 +209,12 @@
 }
 
 /* ТЕМНАЯ ТЕМА: делаем иконки белыми */
-:global(body.dark) :local(.icon-heart::before),
+:global(body.dark) :local(.icon-heart::before) {
+  background-image: url("../../../assets/icons/favourite_dark.svg");
+}
+
 :global(body.dark) :local(.icon-cart::before) {
-  filter: invert(1);
+  background-image: url("../../../assets/icons/cart_dark.svg");
 }
 
 .icon-burger {
