@@ -64,10 +64,6 @@ body {
     background: var(--bg);
     color: var(--text);
     transition: background var(--transition-fast), color var(--transition-fast);
-    width: 100%;
-    /* Добавил из твоего */
-    height: 100%;
-    /* Добавил из твоего */
     background-color: var(--bg);
     font-family: sans-serif;
 }
@@ -96,12 +92,6 @@ body.dark {
     }
 }
 
-.app {
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
-    width: 100%;
-}
 
 .section-title {
     font-size: 64px;
