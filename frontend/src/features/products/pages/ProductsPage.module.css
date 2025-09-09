@@ -1,5 +1,6 @@
 .product {
-  padding-inline: 40px;
+  padding: var(--container-padding);
+  margin-top: var(--mt-m);
 }
 
 
@@ -82,6 +83,7 @@
 
   .productGrid {
     grid-template-columns: 1fr;
+
 
   }
 }

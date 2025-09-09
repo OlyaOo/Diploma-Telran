@@ -19,6 +19,7 @@
     --bg_dark: #424436;
     --icon-fill: #424436;
     --mt: 80px;
+    --mt-m: 40px;
     --items-gap: 32px;
     --container-padding: 0 40px;
     --border-radius-big: 12px;
@@ -39,6 +40,7 @@
 @media (max-width: 768px) {
     :root {
         --mt: 56px;
+        --mt-m: 32px;
     }
 }
 
