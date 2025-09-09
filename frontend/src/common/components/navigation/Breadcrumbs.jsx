@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '@redux/slices/categorySlice.js';
+import './Breadcrumbs.scss';
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -17,6 +18,9 @@ const Breadcrumbs = () => {
 
   const paths = location.pathname.split('/').filter(Boolean);
   const isHome = location.pathname === '/';
+  const isCart = location.pathname === '/cart';
+
+  if (isHome || isCart) return null;
 
   // Строим крошки
   const crumbs = [];
@@ -51,16 +55,18 @@ const Breadcrumbs = () => {
     });
   }
 
-  // Если на главной — ничего не рендерим 
-  if (isHome) return null;
+
 
   return (
-    <nav aria-label="breadcrumb">
-      <ol>
+    <nav className="breadcrumb">
+      <ol className="breadcrumb-list">
         {crumbs.map(({ name, url }) => (
-          <li key={url}>
-            <Link to={url}>{name}</Link>
-          </li>
+          <>
+            <li key={url} className="breadcrumb-item">
+              <Link to={url}>{name}</Link>
+            </li>
+            <div className="breadcrumb-line"></div>
+          </>
         ))}
       </ol>
     </nav>
