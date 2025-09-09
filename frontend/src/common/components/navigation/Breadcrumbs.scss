@@ -1,16 +1,10 @@
 .breadcrumb {
-
-    --mt-breadcrumb: 40px;
+    padding: var(--container-padding);
     --border-breadcrumb: #DDDDDD;
     --color-breadcrumb: #8B8B8B;
     --color-active-breadcrumb: #424436;
     --border-small: 6px;
-    margin-top: var(--mt-breadcrumb);
-
-    @media (max-width: 768px) {
-        --mt-breadcrumb: 32px;
-
-    }
+    margin-top: var(--mt-m);
 
     @media (max-width: 767px) {
         display: none;
