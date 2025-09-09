@@ -1,7 +1,10 @@
 .productCard {
   width: 100%;
   position: relative;
-
+  background: var(--card-bg);
+  border-radius: var(--border-radius-big);
+  border: 1px solid var(--border-card-color);
+  overflow: hidden;
 }
 
 .productPrice {
@@ -9,6 +12,7 @@
   align-items: baseline;
   gap: 12px;
   padding-left: 32px;
+  padding-bottom: 32px;
 }
 
 .oldPrice {
@@ -25,6 +29,7 @@
 
 .productName {
   padding: 20px 32px 16px 32px;
+
   font-size: 20px;
   color: var(--text);
   white-space: nowrap;
@@ -36,9 +41,8 @@
   width: 100%;
 
   object-fit: cover;
-  border-radius: 10px;
-
 }
+
 
 .addToCart {
   position: absolute;
@@ -69,6 +73,7 @@
 
   .productPrice {
     padding-left: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -84,11 +89,8 @@
 
   .productName {
     font-size: 16px;
-    color: #282828;
     white-space: normal;
   }
-
-
 
   .icon {
     max-width: 32px;
