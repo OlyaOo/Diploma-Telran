@@ -18,352 +18,335 @@
 }
 
 .upperContent {
-    .upperContent {
-        grid-area: content;
+    grid-area: content;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    row-gap: 32px;
+}
+
+
+
+.headerRow {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+    align-items: center;
+}
+
+.title {
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: 1.2px;
+}
+
+.favoriteBtn {
+    background: none;
+    border: 0;
+    width: 48px;
+    height: 48px;
+}
+
+
+.priceContainer {
+    display: flex;
+    gap: 32px;
+    align-items: baseline;
+
+}
+
+.discountedPrice {
+    color: var(--text-color);
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+
+}
+
+.oldPrice {
+    color: var(--label-color);
+    font-size: 40px;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+
+.customDiscountBadge {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.6px;
+    padding: 4px 8px;
+    background-color: #F26D22;
+    color: white;
+    border-radius: 6px;
+    align-self: self-start;
+}
+
+.quantityContainer {
+    display: flex;
+    align-items: center;
+}
+
+.quantityButton {
+    padding: 17px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+}
+
+.quantityInput {
+    font-size: 24px;
+    text-align: center;
+    width: 98px;
+    border: none;
+}
+
+.addToCart {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    width: 316px;
+    padding: 16px 32px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.descriptionBlock {
+    color: var(--text-color);
+
+}
+
+.descriptionTitle {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    padding-bottom: 16px;
+}
+
+.descriptionText {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    padding-bottom: 16px;
+}
+
+.readMore {
+    color: var(--text-color);
+    border: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .productDetails {
         display: grid;
-        grid-template-rows: auto auto auto 1fr;
-        row-gap: 32px;
-    }
-
-
-
-    .headerRow {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        column-gap: 16px;
-        align-items: center;
-    }
-
-    .title {
-        color: var(--text-color);
-        font-size: 40px;
-        font-weight: 700;
-        line-height: 110%;
-        letter-spacing: 1.2px;
-    }
-
-    .favoriteBtn {
-        background: none;
-        border: 0;
-        width: 48px;
-        height: 48px;
-    }
-
-
-    .priceContainer {
-        display: flex;
-        gap: 32px;
-        align-items: baseline;
-
-    }
-
-    .discountedPrice {
-        color: var(--text-color);
-        font-size: 64px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 110%;
-
-    }
-
-    .oldPrice {
-        color: var(--label-color);
-        font-size: 40px;
-        font-weight: 500;
-        text-decoration: line-through;
-    }
-
-    .customDiscountBadge {
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 130%;
-        letter-spacing: 0.6px;
-        padding: 4px 8px;
-        background-color: #F26D22;
-        color: white;
-        border-radius: 6px;
-        align-self: self-start;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        /* Определяет 2 строки */
+        grid-template-areas:
+            /*Определяет, как элементы размещаются в сетке*/
+            "image upperContent"
+            "descriptionBlock descriptionBlock";
+        gap: 20px;
+        padding: 0 20px 20px 20px;
     }
 
     .quantityContainer {
         display: flex;
+        flex-direction: row;
+        /* Изменено: flex-direction: row для горизонтальной компоновки элементов */
+        flex-wrap: wrap;
+        /* Добавлено: flex-wrap: wrap, чтобы элементы переносились на новую строку, если не помещаются */
         align-items: center;
+        /* Добавлено: align-items: center для вертикального выравнивания - число + в центре */
+        flex-shrink: 0;
+        gap: 10px;
     }
 
-    .quantityButton {
-        padding: 17px;
-        font-size: 24px;
-        cursor: pointer;
-        border: none;
+
+    .quantityContainer .addToCart {
+        width: 100%;
+        /* Add to cart на всю ширину под строкой */
     }
 
-    .quantityInput {
-        font-size: 24px;
-        text-align: center;
-        width: 98px;
-        border: none;
+    .title {
+        font-size: 32px;
     }
 
-    .addToCart {
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 130%;
-        width: 316px;
-        padding: 16px 32px;
-        background-color: green;
-        color: white;
-        border: none;
-        border-radius: 6px;
+    .discountedPrice {
+        font-size: 56px;
+    }
+
+    .oldPrice {
+        font-size: 32px;
+    }
+
+    .productImg {
+        grid-area: image;
+        max-width: 354px;
+        max-height: 286px;
+    }
+
+    .content {
+        display: contents;
+    }
+
+    .upperContent {
+        grid-area: upperContent;
+        display: grid;
+        grid-template-rows: auto auto auto;
+        row-gap: 20px;
     }
 
     .descriptionBlock {
-        color: var(--text-color);
+        grid-area: descriptionBlock;
+        /* всю строку */
+    }
+}
 
+@media (max-width: 480px) {
+    .productDetails {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "header header"
+            "image right"
+            "description description";
+        gap: 20px;
+        padding: 32px 20px 20px 20px;
+    }
+
+    .content {
+        display: contents;
+    }
+
+    .upperContent {
+        display: contents;
+    }
+
+    .headerRow {
+        grid-area: header;
+    }
+
+    .productImg {
+        grid-area: image;
+        max-height: 179px;
+    }
+
+    .rightColumn {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: 100%;
+
+    }
+
+    .descriptionBlock {
+        grid-area: description;
+    }
+
+    .quantityContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .quantityContainer .addToCart {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .favoriteBtn {
+        width: 40px;
+    }
+
+    .priceContainer {
+        gap: 12px;
+    }
+
+    .discountedPrice {
+        font-size: 40px;
+    }
+
+    .oldPrice {
+        font-size: 28px;
+    }
+
+
+
+
+
+    .addToCart {
+        font-size: 14px;
+        padding: 12px 20px;
     }
 
     .descriptionTitle {
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 130%;
-        padding-bottom: 16px;
+        font-size: 16px;
+        padding-bottom: 10px;
     }
 
     .descriptionText {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 130%;
-        padding-bottom: 16px;
+        font-size: 12px;
+        padding-bottom: 10px;
     }
 
     .readMore {
-        color: var(--text-color);
-        border: none;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 130%;
-        text-decoration: underline;
-        cursor: pointer;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .productDetails {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .productImg {
+        width: 100%;
+        max-height: 220px;
+        object-fit: cover;
+    }
+
+    .headerRow {
+
+        order: -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .descriptionTitle {
+        font-size: 18px;
+        padding-bottom: 12px;
+    }
+
+    .descriptionText {
+        font-size: 14px;
+        padding-bottom: 12px;
+    }
+
+    .readMore {
+        font-size: 14px;
     }
 
 
-
-
-    @media (max-width: 768px) {
-        .productDetails {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-template-rows: auto auto;
-            /* Определяет 2 строки */
-            grid-template-areas:
-                /*Определяет, как элементы размещаются в сетке*/
-                "image upperContent"
-                "descriptionBlock descriptionBlock";
-            gap: 20px;
-            padding: 0 20px 20px 20px;
-            grid-template-columns: auto 1fr;
-            grid-template-rows: auto auto;
-            /* Определяет 2 строки */
-            grid-template-areas:
-                /*Определяет, как элементы размещаются в сетке*/
-                "image upperContent"
-                "descriptionBlock descriptionBlock";
-            gap: 20px;
-            padding: 0 20px 20px 20px;
-        }
-
-        .quantityContainer {
-            .quantityContainer {
-                display: flex;
-                flex-direction: row;
-                /* Изменено: flex-direction: row для горизонтальной компоновки элементов */
-                flex-wrap: wrap;
-                /* Добавлено: flex-wrap: wrap, чтобы элементы переносились на новую строку, если не помещаются */
-                align-items: center;
-                /* Добавлено: align-items: center для вертикального выравнивания - число + в центре */
-                flex-direction: row;
-                /* Изменено: flex-direction: row для горизонтальной компоновки элементов */
-                flex-wrap: wrap;
-                /* Добавлено: flex-wrap: wrap, чтобы элементы переносились на новую строку, если не помещаются */
-                align-items: center;
-                /* Добавлено: align-items: center для вертикального выравнивания - число + в центре */
-                flex-shrink: 0;
-                gap: 10px;
-            }
-
-
-            .quantityContainer .addToCart {
-                width: 100%;
-                /* Add to cart на всю ширину под строкой */
-            }
-
-            .title {
-                font-size: 32px;
-            }
-
-            .discountedPrice {
-                font-size: 56px;
-            }
-
-            .oldPrice {
-                font-size: 32px;
-            }
-
-            .productImg {
-                grid-area: image;
-                max-width: 354px;
-                max-height: 286px;
-            }
-
-            .content {
-                display: contents;
-            }
-
-            .upperContent {
-                grid-area: upperContent;
-                display: grid;
-                grid-template-rows: auto auto auto;
-                row-gap: 20px;
-            }
-
-            .descriptionBlock {
-                grid-area: descriptionBlock;
-                /* всю строку */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .productDetails {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                grid-template-areas:
-                    "header header"
-                    "image right"
-                    "description description";
-                gap: 20px;
-                padding: 32px 20px 20px 20px;
-            }
-
-            .content {
-                display: contents;
-            }
-
-            .upperContent {
-                display: contents;
-            }
-
-            .headerRow {
-                grid-area: header;
-            }
-
-            .productImg {
-                grid-area: image;
-                max-height: 179px;
-            }
-
-            .rightColumn {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                height: 100%;
-
-            }
-
-            .descriptionBlock {
-                grid-area: description;
-            }
-
-            .quantityContainer {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-items: center;
-            }
-
-            .quantityContainer .addToCart {
-                width: 100%;
-            }
-
-            .title {
-                font-size: 28px;
-            }
-
-            .favoriteBtn {
-                width: 40px;
-            }
-
-            .priceContainer {
-                gap: 12px;
-            }
-
-            .discountedPrice {
-                font-size: 40px;
-            }
-
-            .oldPrice {
-                font-size: 28px;
-            }
-
-
-
-
-
-            .addToCart {
-                font-size: 14px;
-                padding: 12px 20px;
-            }
-
-            .descriptionTitle {
-                font-size: 16px;
-                padding-bottom: 10px;
-            }
-
-            .descriptionText {
-                font-size: 12px;
-                padding-bottom: 10px;
-            }
-
-            .readMore {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .productDetails {
-                display: flex;
-                flex-direction: column;
-
-            }
-
-            .productImg {
-                width: 100%;
-                max-height: 220px;
-                object-fit: cover;
-            }
-
-            .headerRow {
-
-                order: -1;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .descriptionTitle {
-                font-size: 18px;
-                padding-bottom: 12px;
-            }
-
-            .descriptionText {
-                font-size: 14px;
-                padding-bottom: 12px;
-            }
-
-            .readMore {
-                font-size: 14px;
-            }
-
-
-        }
+}
