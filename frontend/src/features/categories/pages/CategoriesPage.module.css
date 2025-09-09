@@ -1,7 +1,3 @@
-.categoriesPage {
-    padding: 0 40px 54px 40px;
-}
-
 .categoriesGrid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -18,7 +14,6 @@
 .categoryImg {
     margin: 0 auto;
     width: 100%;
-    height: 350px;
     object-fit: cover;
     border-radius: 12px;
     display: block;
@@ -35,13 +30,12 @@ a {
     text-decoration: none;
 }
 
-
+.categoriesPage {
+    padding: var(--container-padding);
+}
 
 @media (max-width: 1000px) {
 
-    .categoriesPage {
-    padding: 0 20px 40px 20px;
-}
 
     .categoryImg {
         height: 250px;
@@ -49,7 +43,7 @@ a {
 
     .categoriesGrid {
         grid-template-columns: repeat(3, 1fr);
-       display: grid;
+        display: grid;
         gap: 20px;
     }
 }
@@ -75,7 +69,7 @@ a {
 
     .categoriesGrid {
         grid-template-columns: repeat(2, 1fr);
-       display: grid;
+        display: grid;
         gap: 20px;
     }
 

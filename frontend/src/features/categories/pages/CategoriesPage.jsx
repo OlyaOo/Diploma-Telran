@@ -4,7 +4,7 @@ import { fetchCategories } from '@redux/slices/categorySlice.js';
 import { Link } from 'react-router-dom';
 import api from '@api/axios.js';
 import styles from './CategoriesPage.module.css'
-import Title from '../../../common/components/ui/title'
+import Title from '@common/components/ui/title/Title.jsx'
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();
@@ -20,10 +20,10 @@ const CategoriesPage = () => {
       <div className={styles.categoriesGrid}>
         {items.map(cat => (
           <Link key={cat.id} to={`/category/${cat.id}`} className={styles.categoryCard}>
-            <img 
+            <img
               src={`${api.defaults.baseURL}/${cat.image}`}
-              alt={cat.title} 
-              className={styles.categoryImg} 
+              alt={cat.title}
+              className={styles.categoryImg}
             />
             <p className={styles.categoryTitle}>{cat.title}</p>
           </Link>
