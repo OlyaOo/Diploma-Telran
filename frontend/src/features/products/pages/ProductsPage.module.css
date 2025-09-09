@@ -16,7 +16,7 @@
 
 .productGrid {
   display: grid;
-  gap: 32px;
+  gap: var(--card-gap);
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 auto;
 
@@ -84,5 +84,12 @@
   .productGrid {
     grid-template-columns: 1fr;
 
+
+  }
+}
+
+@media (max-width: 450px) {
+  .productGrid {
+    grid-template-columns: 1fr;
   }
 }

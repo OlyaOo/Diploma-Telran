@@ -22,6 +22,10 @@
     --mt-m: 40px;
     --items-gap: 32px;
     --container-padding: 0 40px;
+    --border-radius-big: 12px;
+    --border-card-color: #DDDDDD;
+    --card-gap: 32px;
+    --card-padding: 32px;
 }
 
 @media (max-width: 1000px) {
@@ -29,6 +33,7 @@
         --mt: 60px;
         --items-gap: 20px;
         --container-padding: 0 20px;
+        --card-gap: 20px;
     }
 }
 
@@ -49,6 +54,7 @@ body.dark {
     --text-color: #FFFFFF;
     --card-bg: #383A2C;
     --icon-fill: #FFFFF1;
+    --border-card-color: #8B8B8B;
 }
 
 html {

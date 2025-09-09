@@ -7,7 +7,7 @@ import styles from './ProductCardMain.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
 
-  const ProductCardMain = ({ id, title, price, discont_price, image }) => {
+const ProductCardMain = ({ id, title, price, discont_price, image }) => {
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3333';
   const imgSrc = image?.startsWith('/') ? `${baseUrl}${image}` : `${baseUrl}/${image}`;
 
