@@ -1,0 +1,285 @@
+.footer {
+  color: var(--text-color);
+  padding-inline: 40px;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.footerPhone,
+.footerSocials,
+.footerHours,
+.footerAddress {
+  background-color: var(--card-bg);
+  padding: 32px;
+  border-radius: 12px;
+}
+
+.contactLabel {
+  font-size: 20px;
+  color: var(--label-color);
+  padding-bottom: 16px;
+}
+
+.footerPhone a {
+  display: block;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.footerAddress p:nth-child(2),
+.footerHours p:nth-child(2) {
+  color: var(--text-color);
+  font-size: 40px;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.socialIcon {
+  width: 32px;
+  height: 32px;
+  fill: var(--icon-fill);
+
+  & path {
+    fill: var(--icon-fill);
+  }
+
+  cursor: pointer;
+}
+
+.mapContainer {
+  margin-top: 32px;
+}
+
+.mapContainer iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-radius: 16px;
+}
+
+@media (max-width: 1000px) {
+  .footer {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .footerPhone a {
+    font-size: 28px;
+  }
+
+  .footerSocials {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .footerPhone,
+  .footerSocials,
+  .footerHours,
+  .footerAddress {
+    padding: 20px;
+  }
+}
+
+.footer {
+  padding: 0 40px;
+  color: var(--text-color);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+
+  &>div {
+    border-radius: 12px;
+  }
+}
+
+
+
+.contact-label {
+  font-size: 20px;
+  color: var(--label-color);
+  padding-bottom: 16px;
+}
+
+.footer-phone a {
+  display: block;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.footer-address p:nth-child(2),
+.footer-hours p:nth-child(2) {
+  color: var(--text-color);
+  font-size: 40px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+
+}
+
+
+
+.map-container {
+  margin-top: 32px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-radius: 16px;
+}
+
+
+
+
+.footer {
+  margin-top: var(--mt);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 16px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .footer-phone a,
+  .footer-address p:nth-child(2),
+  .footer-hours p:nth-child(2) {
+    font-size: 28px;
+  }
+
+}
+
+
+.sale-section {
+  background: var(--footer-bg);
+  margin: 32px;
+  max-width: 100%;
+}
+
+.sale-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.sale-title {
+  color: #424436;
+  font-size: 64px;
+}
+
+.all-sales-btn {
+  color: #8B8B8B;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+}
+
+.sale-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.productDiscount {
+  position: absolute;
+  margin: 16px 232px 232px 16px;
+  background-color: #F26D22;
+  color: #FFFFFF;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.favorite-btn {
+  position: absolute;
+  margin: 18px 18px 228px 254px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.add-to-cart {
+  position: absolute;
+  margin: 74px 16px 162px 252px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.productName {
+  padding: 20px 32px 16px 32px;
+  font-size: 20px;
+  color: #282828;
+
+}
+
+.productPrice {
+  display: flex;
+  margin-left: 32px;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.new-price {
+  font-size: 40px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #8B8B8B;
+  font-size: 20px;
+}
+
+
+
+@media (max-width: 728px) {
+  .sale-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-md);
+  }
+}
+
+@media (max-width: 360px) {
+  .sale-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+}

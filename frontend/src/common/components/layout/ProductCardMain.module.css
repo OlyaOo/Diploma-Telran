@@ -1,7 +1,7 @@
 .productCard {
   width: 100%;
   position: relative;
-  
+
 }
 
 .productPrice {
@@ -26,7 +26,7 @@
 .productName {
   padding: 20px 32px 16px 32px;
   font-size: 20px;
-  color: #282828;
+  color: var(--text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -34,10 +34,10 @@
 
 .productImg {
   width: 100%;
-  
+
   object-fit: cover;
   border-radius: 10px;
-  
+
 }
 
 .addToCart {
@@ -57,9 +57,11 @@
   background: none;
   border: none;
 }
+
 .icon {
   max-width: 40px;
 }
+
 @media (max-width: 768px) {
   .productName {
     padding: 20px;
@@ -69,14 +71,15 @@
     padding-left: 20px;
   }
 }
+
 @media (max-width: 360px) {
-  
- 
+
+
   .productImg {
     width: 100%;
-    aspect-ratio: 5 / 5; 
+    aspect-ratio: 5 / 5;
     object-fit: cover;
-   
+
   }
 
   .productName {
@@ -87,5 +90,7 @@
 
 
 
-  .icon { max-width: 32px; } 
+  .icon {
+    max-width: 32px;
+  }
 }
