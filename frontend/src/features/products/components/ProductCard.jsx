@@ -5,6 +5,7 @@ import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
 
 import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
+import ImageZoomModal from '../../../common/components/feedback/ImageZoomModal';
 import styles from './ProductCard.module.css';
 
 import HeartIcon from '@/assets/icons/heart.svg?react';
@@ -19,6 +20,7 @@ const ProductCard = ({ product }) => {
   // Определяем, является ли продукт избранным
   const dispatch = useDispatch();
   const isFavorite = useSelector(s => selectIsFavorite(s, product.id));
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onToggleFavorite = (e) => {
     // кнопка находится внутри <Link> — предотвращаем переход
@@ -27,12 +29,21 @@ const ProductCard = ({ product }) => {
     dispatch(addFavorite(product.id));
   };
 
+const handleImageClick = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+ 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
 
     <div className={styles.productCard}>
 
       <Link to={`/product/${product.id}`} className={styles.productLink}>
-        <img src={imageUrl} alt={product.title} className={styles.productImg} />
+        <img src={imageUrl} alt={product.title} className={styles.productImg} onClick={handleImageClick}/>
         <h3 className={styles.productName}>{product.title}</h3>
         
         {/* Кнопка добавления в избранное */}
@@ -61,6 +72,12 @@ const ProductCard = ({ product }) => {
           <span className={styles.newPrice}>{formatPrice(product.price)}</span>
         )}
       </div>
+      <ImageZoomModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        imageSrc={imageUrl}
+        alt={product.title}
+      />
     </div>
   );
 };
