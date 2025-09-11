@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react'; // useState для управления состоянием модального окна
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
@@ -30,8 +30,14 @@ const ProductCard = ({ product }) => {
   };
 
 const handleImageClick = (e) => {
+  console.log('Image clicked in ProductCard'); // Логируем клик по изображению
+  try {
     e.preventDefault();
     setIsModalOpen(true);
+    console.log('Modal opened successfully'); // Логируем открытие модального окна
+  } catch (error) {
+    console.error('Error opening modal:', error); // Логируем ошибку, если что-то пошло не так
+  }
   };
  
   const handleCloseModal = () => {
@@ -72,12 +78,14 @@ const handleImageClick = (e) => {
           <span className={styles.newPrice}>{formatPrice(product.price)}</span>
         )}
       </div>
-      <ImageZoomModal
+      {isModalOpen && (
+        <ImageZoomModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         imageSrc={imageUrl}
         alt={product.title}
       />
+      )}
     </div>
   );
 };

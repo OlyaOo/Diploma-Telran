@@ -18,7 +18,9 @@ body.dark .modalOverlay {
 }
 
 .modalContent {
-  position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   transition: all 0.3s ease;
 }
 
@@ -27,9 +29,10 @@ body.dark .modalOverlay {
   object-fit: contain;
   opacity: 1;
   transform: rotate(0deg);
-
-  width: 900px;
-  height: 610px;
+max-width: 900px;
+max-height: 610px;
+  width: 100%;
+  height: auto;
 }
 
 @media (min-width: 1440px) {
