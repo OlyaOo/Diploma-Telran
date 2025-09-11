@@ -19,7 +19,7 @@ const SaleSection = () => {
 
   return (
     <section className={styles.saleSection}>
-      <TitleList title="Sale" type="All sales" />
+      <TitleList title="Sale" type="All sales" link="/sales" />
 
       <div className={styles.saleGrid}>
         {displayed.map(prod => (

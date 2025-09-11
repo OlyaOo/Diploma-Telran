@@ -28,7 +28,7 @@ const CategoriesList = () => {
 
   return (
     <div className="categories-section">
-      <TitleList title="Categories" type="All categories " />
+      <TitleList title="Categories" type="All categories" link="/categories" />
       <div className="category-wrapper">
         <div className="categories-list-container">
           {status === 'loading' && <p>Loading categories...</p>}

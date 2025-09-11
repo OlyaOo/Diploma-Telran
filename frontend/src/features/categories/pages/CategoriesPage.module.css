@@ -32,6 +32,7 @@ a {
 
 .categoriesPage {
     padding: var(--container-padding);
+    margin-top: var(--mt-m);
 }
 
 @media (max-width: 1000px) {
