@@ -1,0 +1,99 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+body.dark .modalOverlay {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.modalContent {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.modalImage {
+  border-radius: var(--border-radius-big, 12px);
+  object-fit: contain;
+  opacity: 1;
+  transform: rotate(0deg);
+
+  width: 900px;
+  height: 610px;
+}
+
+@media (min-width: 1440px) {
+  .modalContent {
+    width: 180px;
+    height: 270px;
+  }
+    .modalImage {
+        width: 900px;
+        height: 610px;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1439px) {
+  .modalImage {
+    width: 700px;
+    height: 480px;
+  }
+    .modalContent {
+        top: 150px;
+        left: 200px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 999px) {
+  .modalImage {
+    width: 500px;
+    height: 350px;
+  }
+    .modalContent {
+        top: 120px;
+        left: 100px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .modalImage {
+    width: 400px;
+    height: 280px;
+  }
+    .modalContent {
+        top: 100px;
+        left: 50px;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 479px) {
+  .modalImage {
+    width: 320px;
+    height: 216px;
+  }
+    .modalContent {
+        top: 108px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 359px) {
+  .modalImage {
+    width: 280px;
+    height: 190px;
+  }
+    .modalContent {
+        top: 80px;
+        left: 10px;
+    }
+}
