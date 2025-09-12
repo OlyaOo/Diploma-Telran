@@ -1,4 +1,4 @@
-import React, { useState} from 'react'; // useState для управления состоянием модального окна
+import React from 'react'; //убрала useState для управления состоянием модального окна
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
