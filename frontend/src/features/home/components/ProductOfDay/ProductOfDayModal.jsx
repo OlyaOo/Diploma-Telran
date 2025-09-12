@@ -4,6 +4,7 @@ import api from '@api/axios.js';
 import { addToCart } from '@redux/slices/cartSlice.js';
 import { close, selectProductOfDay, selectProductOfDayState } from '@redux/slices/productOfDaySlice.js';
 import styles from './ProductOfDayModal.module.css';
+import { addFavorite, selectFavoriteIds } from '@redux/slices/favoritesSlice.js';
 
 // ---- helpers for absolute image URL ----
 const API_ORIGIN = (() => {
@@ -21,6 +22,20 @@ export default function ProductOfDayModal() {
   const dispatch = useDispatch();
   const { isOpen, status } = useSelector(selectProductOfDayState);
   const data = useSelector(selectProductOfDay); // { product, discountedPrice, discountPct } | null
+
+  // IDs избранного из стора
+const favIds = useSelector(selectFavoriteIds);
+
+// ID текущего товара и флаг "в избранном?"
+const productId = data?.product?.id;
+const isFav = productId != null && favIds.includes(String(productId));
+
+// toggle избранного по ID (slice делает это одним экшеном)
+const onToggleFav = (e) => {
+  e.stopPropagation();            // на всякий: не всплывать до backdrop
+  if (productId == null) return;
+  dispatch(addFavorite(productId));
+};
 
   // Close modal on ESC
   useEffect(() => {
@@ -83,6 +98,14 @@ export default function ProductOfDayModal() {
                   onError={(e) => { e.currentTarget.src = buildImgUrl('/product_img/placeholder.png'); }}
                 />
                 <span className={styles.imgBadge}>-50%</span>
+                <button
+                  type="button"
+                  className={`${styles.favBtn} ${isFav ? styles.favBtn_active : ''}`}
+                  onClick={onToggleFav}
+                  aria-pressed={isFav}
+                  aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
+                  title={isFav ? 'Remove from favorites' : 'Add to favorites'}
+                />
               </div>
               <div className={styles.info}>
                 <div className={styles.name}>{data.product.title}</div>
