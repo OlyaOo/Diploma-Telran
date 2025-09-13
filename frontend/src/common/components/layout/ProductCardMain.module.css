@@ -1,14 +1,18 @@
 .productCard {
   width: 100%;
   position: relative;
-  
+  background-color: var(--saleSection-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-Color);
+
+
 }
 
 .productPrice {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding-left: 32px;
+  padding: 0 32px 32px 32px;
 }
 
 .oldPrice {
@@ -26,7 +30,7 @@
 .productName {
   padding: 20px 32px 16px 32px;
   font-size: 20px;
-  color: #282828;
+  color: var(--text-color);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -36,7 +40,7 @@
   width: 100%;
   
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   
 }
 

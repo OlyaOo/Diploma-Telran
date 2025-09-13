@@ -5,10 +5,12 @@ import { fetchProducts } from '@redux/slices/productSlice.js';
 import styles from './SaleSection.module.css';
 import Title from '@/common/components/ui/title.jsx';
 import ProductCard from '@/common/components/layout/ProductCardMain';
+import { useNavigate } from 'react-router-dom';
 
 const SaleSection = () => {
   const dispatch = useDispatch();
   const { items } = useSelector(state => state.products);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -16,6 +18,10 @@ const SaleSection = () => {
 
   const discountItems = items.filter(p => p.discont_price && p.discont_price < p.price);
   const displayed = discountItems.slice(4, 8);
+
+  const handleCardClick = (id) => {
+    navigate(`/product/${id}`)
+  }
 
   return (
     <section className={styles.saleSection}>
@@ -34,6 +40,7 @@ const SaleSection = () => {
             price={prod.price}
             discont_price={prod.discont_price}
             image={prod.image}
+            onClick={() => handleCardClick(prod.id)}
           />
         ))}
       </div>

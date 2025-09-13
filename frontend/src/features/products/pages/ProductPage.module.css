@@ -13,12 +13,10 @@
 }
 
 
-.productGrid {
+.productGrid  {
   display: grid; 
   gap: 32px;
   grid-template-columns: repeat(4, minmax(0, 1fr)); 
-  margin: 0 auto;
-  
 }
 
 @media (max-width: 1000px) {

@@ -4,7 +4,7 @@ import { fetchCategories } from '@redux/slices/categorySlice.js';
 import { Link } from 'react-router-dom';
 import api from '@api/axios.js';
 import styles from './CategoriesPage.module.css'
-import Title from '../../../common/components/ui/title'
+import Title from '../../../common/components/ui/title';
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();

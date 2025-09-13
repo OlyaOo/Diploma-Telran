@@ -1,31 +1,41 @@
 .saleSection {
-  padding-inline: 40px;
+  padding: 0 40px 80px 40px;
 }
 
 .saleHeader {
   display: flex;
-  justify-content: space-between;
+  align-items: center; 
+  gap: 16px;
+  padding-bottom: 40px;            
+}
+
+
+.saleLine {
+  flex: 1 1 auto;       
+  height: 1px;
+  background: var(--label-color);
 }
 
 .allSalesBtn {
   color: var(--label-color);
   font-size: 16px;
-  border: 0;
+  background-color: var(--footer-bg);
   cursor: pointer;
-  padding-right: 16px;
-  padding-bottom: 20px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border-Color);
 }
 
 .saleGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 32px;
-  margin: auto;
+  
 }
 
 @media (max-width: 1000px) {
   .saleSection {
-    padding-inline: 20px;
+    padding: 0 20px 60px 20px;
   }
 
   .saleGrid {
@@ -34,12 +44,8 @@
 }
 
 @media (max-width: 768px) {
-  .productName {
-    padding: 20px;
-  }
-
-  .productPrice {
-    padding-left: 20px;
+  .saleSection {
+    padding: 0 20px 40px 20px;
   }
 }
 
@@ -48,4 +54,3 @@
     grid-template-columns: 1fr;
   }
 }
-

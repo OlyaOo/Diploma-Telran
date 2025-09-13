@@ -16,6 +16,12 @@
 .footerAddress {
   background-color: var(--card-bg);
   padding: 32px;
+  border-radius: 15px;
+  color: var(--text-color);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
 }
 
 .contactLabel {
@@ -25,30 +31,24 @@
 }
 
 .footerPhone a {
-  display: block;
   font-weight: 600;
   color: var(--text-color);
-  font-size: 40px;
   text-decoration: none;
 }
 
-.footerAddress p:nth-child(2),
-.footerHours p:nth-child(2) {
-  color: var(--text-color);
-  font-size: 40px;
-}
+
 
 .socialIcons {
   display: flex;
   align-items: center;
   gap: 19px;
+
 }
 
 .socialIcon {
-  width: 32px;
-  height: 32px;
-  fill: var(--text-color);
-  cursor: pointer;
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
 }
 
 .mapContainer {
@@ -72,7 +72,7 @@
   .contactGrid {
     grid-template-columns: 1fr;
   }
-  
+
 }
 
 @media (max-width: 480px) {
