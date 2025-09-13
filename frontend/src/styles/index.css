@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -29,9 +29,9 @@ body {
   color: var(--text);
   transition: background var(--transition-fast), color var(--transition-fast);
   width: 100%;
-  /* Добавил из твоего */
+  
   height: 100%;
-  /* Добавил из твоего */
+  
   font-family: sans-serif;
 }
 
@@ -86,7 +86,7 @@ body.dark {
   --border-Color: #8B8B8B;
 }
 
-/* заголовки в тёмной теме */
+
 body.dark .section-title {
   color: var(--text-color);
-}
+} */

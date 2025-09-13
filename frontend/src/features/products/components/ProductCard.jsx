@@ -2,10 +2,15 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@redux/slices/cartSlice.js';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
+
 import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
 import styles from './ProductCard.module.css';
+
 import HeartIcon from '@/assets/icons/heart.svg?react';
+import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
 import DiscountBadge from '../../discounts/components/DiscountPrice';
 

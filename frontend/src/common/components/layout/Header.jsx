@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import useDarkMode from '../../hooks/useDarkMode.js';
 import styles from "./Header.module.css";
 import logo from '../../../assets/icons/logo.svg';
@@ -10,13 +11,18 @@ import BurgerButton from './headerBurger/BurgerButton.jsx';
 import MobileDrawer from './headerBurger/MobileDrawer.jsx';
 
 
-export default function Header() {
+export default function Header({ hideSeparator = false }) { // prop to optionally hide the line-border on HomePage
   const [theme, toggleTheme] = useDarkMode();
   const isDark = theme === 'dark';
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Get the count of favorite items from Redux store
+  const favCount = useSelector(s => s.favorites?.items?.length ?? 0);// Default to 0 if undefined
+  // Determine the label to display on the favorites icon
+  const favLabel = favCount > 99 ? '99+' : String(favCount);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${hideSeparator ? styles.noSeparator : ''}`}>
       <div className={`${styles.container} ${styles['header-grid']}`}>
         <div className={styles['header-left']}>
           <div className={styles.logo}>
@@ -40,9 +46,11 @@ export default function Header() {
         </div>
 
         <div className={styles['header-right']}>
-          <Link to="/favorites" className={`${styles['icon-btn']} ${styles['icon-heart']}`} aria-label="Favorites" />
-          <Link to="/cart" className={`${styles['icon-btn']} ${styles['icon-cart']}`} aria-label="Cart" />
-          <BurgerButton open={menuOpen} onToggle={() => setMenuOpen(v => !v)} /> 
+          <Link to="/favorites" className={`${styles['icon-btn']} ${styles['icon-heart']}`} >
+            {favCount > 0 && <span className={styles.countBadge}>{favLabel}</span>}
+          </Link>
+          <Link to="/cart" className={`${styles['icon-btn']} ${styles['icon-cart']}`} />
+          <BurgerButton open={menuOpen} onToggle={() => setMenuOpen(v => !v)} />
         </div>
       </div>
 

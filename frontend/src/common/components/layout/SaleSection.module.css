@@ -1,5 +1,6 @@
 .saleSection {
-  padding: 0 40px 80px 40px;
+  padding-inline: 40px;
+  margin-top: var(--mt);
 }
 
 .saleHeader {
@@ -29,8 +30,8 @@
 .saleGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 32px;
-  
+  gap: var(--card-gap);
+  margin: auto;
 }
 
 @media (max-width: 1000px) {
@@ -44,12 +45,17 @@
 }
 
 @media (max-width: 768px) {
-  .saleSection {
-    padding: 0 20px 40px 20px;
+  .productName {
+    padding: 20px;
+  }
+
+  .productPrice {
+    padding-left: 20px;
+    padding-bottom: 20px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 450px) {
   .saleGrid {
     grid-template-columns: 1fr;
   }
