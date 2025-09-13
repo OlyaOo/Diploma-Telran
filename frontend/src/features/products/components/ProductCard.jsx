@@ -5,7 +5,6 @@ import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
 
 import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
-import ImageZoomModal from '../../../common/components/feedback/ImageZoomModal';
 import styles from './ProductCard.module.css';
 
 import HeartIcon from '@/assets/icons/heart.svg?react';
@@ -20,7 +19,6 @@ const ProductCard = ({ product }) => {
   // Определяем, является ли продукт избранным
   const dispatch = useDispatch();
   const isFavorite = useSelector(s => selectIsFavorite(s, product.id));
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onToggleFavorite = (e) => {
     // кнопка находится внутри <Link> — предотвращаем переход
@@ -29,27 +27,13 @@ const ProductCard = ({ product }) => {
     dispatch(addFavorite(product.id));
   };
 
-const handleImageClick = (e) => {
-  console.log('Image clicked in ProductCard'); // Логируем клик по изображению
-  try {
-    e.preventDefault();
-    setIsModalOpen(true);
-    console.log('Modal opened successfully'); // Логируем открытие модального окна
-  } catch (error) {
-    console.error('Error opening modal:', error); // Логируем ошибку, если что-то пошло не так
-  }
-  };
- 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
 
     <div className={styles.productCard}>
 
       <Link to={`/product/${product.id}`} className={styles.productLink}>
-        <img src={imageUrl} alt={product.title} className={styles.productImg} onClick={handleImageClick}/>
+        <img src={imageUrl} alt={product.title} className={styles.productImg}/>
         <h3 className={styles.productName}>{product.title}</h3>
         
         {/* Кнопка добавления в избранное */}
@@ -78,14 +62,6 @@ const handleImageClick = (e) => {
           <span className={styles.newPrice}>{formatPrice(product.price)}</span>
         )}
       </div>
-      {isModalOpen && (
-        <ImageZoomModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        imageSrc={imageUrl}
-        alt={product.title}
-      />
-      )}
     </div>
   );
 };

@@ -21,6 +21,7 @@ body.dark .modalOverlay {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 16px;
   transition: all 0.3s ease;
 }
 
@@ -29,7 +30,7 @@ body.dark .modalOverlay {
   object-fit: contain;
   opacity: 1;
   transform: rotate(0deg);
-max-width: 900px;
+width: 900px;
 max-height: 610px;
   width: 100%;
   height: auto;
@@ -37,8 +38,7 @@ max-height: 610px;
 
 @media (min-width: 1440px) {
   .modalContent {
-    width: 180px;
-    height: 270px;
+    gap: 32px;
   }
     .modalImage {
         width: 900px;
@@ -52,8 +52,7 @@ max-height: 610px;
     height: 480px;
   }
     .modalContent {
-        top: 150px;
-        left: 200px;
+       gap: 24px;
     }
 }
 
@@ -63,8 +62,7 @@ max-height: 610px;
     height: 350px;
   }
     .modalContent {
-        top: 120px;
-        left: 100px;
+        gap: 16px;
     }
 }
 
@@ -74,8 +72,7 @@ max-height: 610px;
     height: 280px;
   }
     .modalContent {
-        top: 100px;
-        left: 50px;
+        gap: 12px;
     }
 }
 
@@ -85,8 +82,7 @@ max-height: 610px;
     height: 216px;
   }
     .modalContent {
-        top: 108px;
-        left: 20px;
+        gap: 8px;
     }
 }
 
@@ -96,7 +92,6 @@ max-height: 610px;
     height: 190px;
   }
     .modalContent {
-        top: 80px;
-        left: 10px;
+        gap: 6px;
     }
 }
