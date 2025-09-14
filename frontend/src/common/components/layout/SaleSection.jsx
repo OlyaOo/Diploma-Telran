@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '@redux/slices/productSlice.js';
-
+import { useNavigate } from 'react-router-dom';
 import styles from './SaleSection.module.css';
 import ProductCardMain from '@/common/components/layout/ProductCardMain';
 import TitleList from '@common/components/ui/title/TitleList.jsx';

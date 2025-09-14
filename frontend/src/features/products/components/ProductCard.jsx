@@ -1,14 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '@redux/slices/cartSlice.js';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '@redux/slices/cartSlice.js';
 import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
-
+import { Link } from 'react-router-dom';
 import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
 import styles from './ProductCard.module.css';
-
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
@@ -17,6 +14,8 @@ import DiscountBadge from '../../discounts/components/DiscountPrice';
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const imageUrl = `${api.defaults.baseURL}/${product.image}`;
+
+  const isFavorite = useSelector(s => selectIsFavorite(s, product.id));
 
   const handleAddToCart = (e) => {
     e.preventDefault();      // не переходим по <Link>
@@ -34,7 +33,7 @@ const ProductCard = ({ product }) => {
   const handleFavorite = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // TODO: здесь твоя логика добавления в избранное
+    dispatch(addFavorite(product.id)); 
   };
 
   return (
@@ -48,7 +47,7 @@ const ProductCard = ({ product }) => {
           className={styles.favoriteBtn} 
           onClick={handleFavorite}
         >
-          <HeartIcon className={styles.icon} />
+          {isFavorite ? <HeartIconGreen className={styles.icon} /> : <HeartIcon className={styles.icon} />}
         </button>
 
         <button

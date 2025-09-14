@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'; // Добавлен для back 
 import CartList from './CartList.jsx';
 import CheckoutForm from '../components/CheckoutForm.jsx';
 import styles from './CartPage.module.css';
-import Title from '@/common/components/ui/title.jsx';
+import TitleList from '@common/components/ui/title/TitleList.jsx';
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const CartPage = () => {
   return (
     <div className={styles.cartPage}>
       <div className={styles.header}>
-        <Title text="Shopping cart" />
+        <TitleList text="Shopping cart" />
         <div className={styles.saleLine} />
         <button className={styles.backBtn} onClick={handleBack}>Back to the store</button>
       </div >
