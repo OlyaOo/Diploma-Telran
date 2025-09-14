@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; //убрала useState для управления состоянием модального окна
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
@@ -27,12 +27,13 @@ const ProductCard = ({ product }) => {
     dispatch(addFavorite(product.id));
   };
 
+
   return (
 
     <div className={styles.productCard}>
 
       <Link to={`/product/${product.id}`} className={styles.productLink}>
-        <img src={imageUrl} alt={product.title} className={styles.productImg} />
+        <img src={imageUrl} alt={product.title} className={styles.productImg}/>
         <h3 className={styles.productName}>{product.title}</h3>
         
         {/* Кнопка добавления в избранное */}
