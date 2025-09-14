@@ -12,6 +12,12 @@
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
+  cursor: pointer; /*новое. Добавлено, что изображение кликабельно */
+  transition: transform 0.3s ease; /* новое. Плавное увеличение при наведении */
+}
+
+.productImg:hover {
+  transform: scale(1.05); /*новое. Увеличение изображения при наведении */
 }
 
 .productName {
