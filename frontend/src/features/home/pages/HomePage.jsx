@@ -1,9 +1,10 @@
 import React from 'react';
-import CategoriesList from '../components/CategoriesList';
 import styles from './HomePage.module.scss';
 import DiscountBlock from '../components/DiscountForm/DiscountBlock.jsx';
 import ProductCard from '../../products/components/ProductCard';
 import "@styles/categories.css";
+import CategoriesList from "@features/home/components/CategoriesList.jsx";
+
 
 export default function HomePage() {
   return (
