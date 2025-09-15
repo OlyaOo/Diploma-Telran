@@ -21,6 +21,9 @@ export default function Header({ hideSeparator = false }) { // prop to optionall
   // Determine the label to display on the favorites icon
   const favLabel = favCount > 99 ? '99+' : String(favCount);
 
+  const cartCount = useSelector(s => s.cart?.items?.length ?? 0);   
+  const cartLabel = cartCount > 99 ? '99+' : String(cartCount);
+
   return (
     <header className={`${styles.header} ${hideSeparator ? styles.noSeparator : ''}`}>
       <div className={`${styles.container} ${styles['header-grid']}`}>
@@ -49,7 +52,9 @@ export default function Header({ hideSeparator = false }) { // prop to optionall
           <Link to="/favorites" className={`${styles['icon-btn']} ${styles['icon-heart']}`} >
             {favCount > 0 && <span className={styles.countBadge}>{favLabel}</span>}
           </Link>
-          <Link to="/cart" className={`${styles['icon-btn']} ${styles['icon-cart']}`} />
+            <Link to="/cart" className={`${styles['icon-btn']} ${styles['icon-cart']}`}>
+            {cartCount > 0 && <span className={styles.countBadge}>{cartLabel}</span>}
+          </Link>
           <BurgerButton open={menuOpen} onToggle={() => setMenuOpen(v => !v)} />
         </div>
       </div>

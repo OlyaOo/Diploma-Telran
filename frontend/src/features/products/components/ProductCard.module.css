@@ -52,7 +52,7 @@
   font-weight: 500;
 }
 
-.add-to-cart {
+.addToCartBtn {
   position: absolute;
   top: 74px;
   right: 16px; 
@@ -61,7 +61,7 @@
   cursor: pointer;
 }
 
-.favorite-btn {
+.favoriteBtn {
   position: absolute;
   top: 16px;
   right: 16px;
