@@ -8,6 +8,7 @@ import CategoriesPage from '@features/categories/pages/CategoriesPage.jsx';
 import SaleSection from '@common/components/layout/SaleSection';
 import FavoritesPage from '@features/favorites/pages/FavoritesPage.jsx';
 import ProductOfDayModal from '@features/home/components/ProductOfDay/ProductOfDayModal.jsx';
+import CartPage from '@features/cart/pages/CartPage.jsx'; 
 
 const App = () => {
   const { pathname } = useLocation();
@@ -23,8 +24,9 @@ const App = () => {
         <Route path="/category/:id" element={<ProductsPage />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
         <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="*" element={<NotFoundPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/cart" element={<CartPage />} /> 
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {isHome && <SaleSection />}   
       <Footer />
