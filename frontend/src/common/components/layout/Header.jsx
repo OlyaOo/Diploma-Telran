@@ -44,14 +44,7 @@ export default function Header({ hideSeparator = false }) { // prop to optionall
             <span className={styles['switch__knob']} />
           </button>
         </div>
-
-        {/* <div className={styles['header-center']}>
-          <button className={styles['discount-btn']} type="button">1 day discount!</button>
-          <DesktopNav links={navLinks} />
-          <ProductOfDayButton className="btn-discount" />
-          <ProductOfDayModal />
-        </div> */}
-
+        
         <div className={styles['header-center']}>
           <ProductOfDayButton className={styles['discount-btn']} />
           <DesktopNav links={navLinks} />
