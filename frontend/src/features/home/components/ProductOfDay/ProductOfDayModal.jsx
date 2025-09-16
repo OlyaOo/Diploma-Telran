@@ -6,6 +6,7 @@ import { close, selectProductOfDay, selectProductOfDayState } from '@redux/slice
 import styles from './ProductOfDayModal.module.css';
 import { addFavorite, selectFavoriteIds } from '@redux/slices/favoritesSlice.js';
 
+
 // ---- helpers for absolute image URL ----
 const API_ORIGIN = (() => {
   try { return new URL(api?.defaults?.baseURL).origin; }
@@ -62,11 +63,10 @@ const onToggleFav = (e) => {
     dispatch(
       addToCart({
         id: product.id,
-        title: product.title,     // если у Alex будет name — переименовать
+        title: product.title,     
         price: discountedPrice,   // already -50%
         image: product.image,
-        qty: 1,
-        source: 'productOfDay',
+        quantity: 1,
       })
     );
     dispatch(close());
