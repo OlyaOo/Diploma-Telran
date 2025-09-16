@@ -10,21 +10,8 @@ const CategoriesList = () => {
   const { items, status, error } = useSelector((state) => state.categories || { items: [], status: 'idle', error: null });
 
   useEffect(() => {
-    console.log('Dispatching fetchCategories...');
     dispatch(fetchCategories());
   }, [dispatch]);
-
-  console.log('Redux state:', { items, status, error });
-
-
-  const fallbackCategories = [
-    { id: 1, title: "Annuals", image: "/category_img/1.jpeg" },
-    { id: 2, title: "Nursery", image: "/category_img/2.jpeg" },
-    { id: 3, title: "Garden Art", image: "/category_img/3.jpeg" },
-    { id: 4, title: "Plant Care", image: "/category_img/4.jpeg" },
-  ];
-
-  const categoriesToShow = items.length > 0 ? items.slice(0, 4) : fallbackCategories;
 
   return (
     <div className="categories-section">
@@ -33,8 +20,8 @@ const CategoriesList = () => {
         <div className="categories-list-container">
           {status === 'loading' && <p>Loading categories...</p>}
           {status === 'failed' && <p>Error: {error || 'Failed to load categories'}</p>}
-          {categoriesToShow.length > 0 ? (
-            categoriesToShow.map((category) => (
+          {items.length > 0 ? (
+            items.slice(0, 4).map((category) => (
               <CategoriesItems
                 key={category.id}
                 id={category.id}

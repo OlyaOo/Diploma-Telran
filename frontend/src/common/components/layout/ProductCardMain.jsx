@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; // Добавлен для перехода на детали продукта
 import { addToCart } from '@redux/slices/cartSlice.js';
 import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
+import { selectIsInCart } from '@redux/slices/cartSlice.js'; // Добавлен для проверки наличия в корзине
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
+import CartIconGreen from '@/assets/icons/cart_green.svg?react'; // Добавлен для зелёной иконки корзины
 import DiscountBadge from '@/features/discounts/components/DiscountPrice';
 import styles from './ProductCardMain.module.css';
 
@@ -16,6 +18,7 @@ const ProductCardMain = ({ id, title, price, discont_price, image }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Для навигации
   const isFavorite = useSelector(s => selectIsFavorite(s, id));
+  const isInCart = useSelector(s => selectIsInCart(s, id)); // Проверка, есть ли в корзине
 
   const onToggleFavorite = () => dispatch(addFavorite(id));
 
@@ -31,7 +34,9 @@ const ProductCardMain = ({ id, title, price, discont_price, image }) => {
         {isFavorite ? <HeartIconGreen className={styles.icon} /> : <HeartIcon className={styles.icon} />}
       </button>
 
-      <button className={styles.addToCart} onClick={onAddToCart}><CartIcon className={styles.icon} /></button>
+      <button className={styles.addToCart} onClick={onAddToCart}>
+        {isInCart ? <CartIconGreen className={styles.icon} /> : <CartIcon className={styles.icon} />}
+      </button>
 
       <img src={imgSrc} alt={title} className={styles.productImg} onClick={onClick} />
 

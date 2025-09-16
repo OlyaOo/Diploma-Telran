@@ -1,12 +1,10 @@
 .productDetails {
     display: grid;
     grid-template-columns: minmax(280px, auto) 1fr;
-
     margin-top: var(--mt-m);
     grid-template-areas: "image content";
     gap: 32px;
     padding: 0 40px 62px 40px;
-    background-color: var(--footer-bg);
 }
 
 .productImg {
@@ -14,7 +12,6 @@
     max-width: 100%;
     max-height: 372px;
     border-radius: 12px;
-    background-color: var(--footer-bg);
 }
 
 .upperContent {
@@ -87,18 +84,21 @@
 .quantityContainer {
     display: flex;
     align-items: center;
-    
+
 }
+
+
 
 .quantityButton {
     padding: 17px;
     font-size: 24px;
     cursor: pointer;
-    border-radius: 6px;
     height: 58px;
-    background-color: var(--footer-bg);
+    background-color: var(--input-card-color);
     color: var(--label-color);
-    
+    border-radius: 6px;
+    border: 1px solid var(--border-card-color);
+
 }
 
 .quantityInput {
@@ -107,8 +107,10 @@
     width: 98px;
     height: 58px;
     border: none;
-    background-color: var(--footer-bg);
+    background-color: var(--input-card-color);
     color: var(--text-color);
+    border-radius: 6px;
+border: 1px solid var(--border-card-color);
 }
 
 .addToCart {
@@ -146,15 +148,15 @@
 
 .readMore {
     color: var(--text-color);
-    background-color: var(--footer-bg);
+    background-color: var(--input-card-color);
     border: none;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 130%;
     text-decoration: underline;
-    
-    
+
+
 }
 
 

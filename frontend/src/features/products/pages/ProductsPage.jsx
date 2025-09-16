@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; // Исправленный импорт с useState
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import ProductCard from '../components/ProductCard.jsx';
 import { Loader } from '@common/components';
 import styles from './ProductsPage.module.css';
-import PriceRange from '../../filterSort/PriceRange.jsx';
-import DiscountedFilter from '../../filterSort/DiscountedFilter.jsx';
-import SortComponent from '../../filterSort/SortComponent.jsx';
-
+import FilterSortControls from '../../filterSort/FilterSortControls.jsx'; // Новый компонент
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
@@ -48,9 +45,7 @@ const ProductsPage = () => {
   return (
     <div className={styles.product}>
       <div className={styles.filterSection}>
-        <PriceRange onPriceChange={handlePriceChange} />
-        <DiscountedFilter onDiscountedChange={handleDiscountedChange} />
-        <SortComponent onSortChange={setSort} />
+        <FilterSortControls onChange={handlePriceChange} onDiscountedChange={handleDiscountedChange} onSortChange={setSort} /> {/* Обновлённый вызов с отдельными handlers, если нужно; или один onChange */}
       </div>
       <div className={styles.productGrid}>
         {filteredSortedItems.slice(0, 35).map(prod => (
