@@ -12,6 +12,7 @@ import DiscountBadge from '../../discounts/components/DiscountPrice';
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import styles from './ProductDetailsPage.module.css';
+import ImageZoomModal from '@common/components/feedback/ImageZoomModal';
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -24,10 +25,20 @@ const ProductDetailsPage = () => {
 
   const [quantity, setQuantity] = useState(1);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleImageClick = () => {
+setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     dispatch(fetchProductById(id));
   }, [dispatch, id]);
+  
 
   if (status === 'loading' || !current) return <Loader />;
 
@@ -49,7 +60,8 @@ const ProductDetailsPage = () => {
 
   return (
     <div className={styles.productDetails}>
-      <img src={imageUrl} alt={current.title} className={styles.productImg} />
+      <img className={styles.productImg} src={imageUrl} alt={current.title} onClick={handleImageClick} 
+      />
       <div className={styles.content}>
         <div className={styles.upperContent}>
           <div className={styles.headerRow}>
@@ -98,6 +110,14 @@ const ProductDetailsPage = () => {
             </button>
           )}
         </div>
+        {isModalOpen && (
+        <ImageZoomModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          imageSrc={imageUrl}
+          alt={current.title}
+        />
+        )}
       </div>
     </div>
   );

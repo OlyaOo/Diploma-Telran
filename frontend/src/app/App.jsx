@@ -7,6 +7,7 @@ import ProductDetailsPage from '@features/products/pages/ProductDetailsPage.jsx'
 import CategoriesPage from '@features/categories/pages/CategoriesPage.jsx';
 import SaleSection from '@common/components/layout/SaleSection';
 import FavoritesPage from '@features/favorites/pages/FavoritesPage.jsx';
+import ProductOfDayModal from '@features/home/components/ProductOfDay/ProductOfDayModal.jsx';
 import CartPage from '@features/cart/pages/CartPage.jsx'; 
 import DiscountsPage from '@features/discounts/pages/DiscountsPage.jsx';
 
@@ -31,6 +32,7 @@ const App = () => {
       </Routes>
       {isHome && <SaleSection />}   
       <Footer />
+      <ProductOfDayModal />
     </div>
   );
 };
