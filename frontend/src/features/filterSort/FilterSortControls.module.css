@@ -1,0 +1,94 @@
+.controls {
+    display: flex;
+
+    gap: 40px;
+
+}
+
+.discountedLabel {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    color: var(--text-color);
+}
+
+.discountedLabel input {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: var(--border-card-color);
+}
+
+.priceRange {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.priceRange label {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    color: var(--text-color);
+}
+
+.priceRange input {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid var(--label-color);
+    padding: 8px 16px;
+    width: 112px;
+}
+
+.priceRange input::placeholder {
+    color: var(--label-color);
+}
+
+.sortDropdown {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+}
+
+.sortDropdown label {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    color: var(--text-color);
+}
+
+.sortSelect {
+    padding: 8px 8px 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--label-color);
+    cursor: pointer;
+
+}
+
+
+@media (max-width: 768px) {
+    .controls {
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+   
+}
+
+

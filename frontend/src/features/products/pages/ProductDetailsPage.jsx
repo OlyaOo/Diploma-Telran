@@ -75,9 +75,11 @@ const ProductDetailsPage = () => {
               )}
             </div>
             <div className={styles.quantityContainer}>
+              
               <button onClick={handleDecrement} className={styles.quantityButton}>-</button>
               <input type="number" value={quantity} readOnly className={styles.quantityInput} />
               <button onClick={handleIncrement} className={styles.quantityButton}>+</button>
+              
               <button onClick={handleAddToCart} className={styles.addToCart}>Add to cart</button>
             </div>
           </div>

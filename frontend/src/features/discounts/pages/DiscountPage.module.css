@@ -1,0 +1,72 @@
+.filter {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.price label {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    color: var(--text-color);
+}
+
+.price input {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid var(--border-card-color);
+    padding: 8px 16px;
+    width: 112px;
+}
+
+.price input::placeholder {
+    color: var(--label-color);
+}
+
+.sorted {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+}
+
+.sorted label {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    color: var(--text-color);
+}
+
+.sorted select {
+    padding: 8px 8px 8px 16px;
+   border: 1px solid var(--border-card-color);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--label-color);
+    cursor: pointer;
+
+}
+
+
+@media (max-width: 768px) {
+    .filter {
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+   
+}

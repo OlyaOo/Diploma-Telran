@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'; // Добавлен для перехода на детали
 import { addToCart } from '@redux/slices/cartSlice.js';
 import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
+import { selectIsInCart } from '@redux/slices/cartSlice.js'; // Добавлен импорт селектора
 import { Link } from 'react-router-dom';
 import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
@@ -9,17 +11,20 @@ import styles from './ProductCard.module.css';
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
+import CartIconGreen from '@/assets/icons/cart_green.svg?react'; // Убедитесь, что файл существует
 import DiscountBadge from '../../discounts/components/DiscountPrice';
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Для навигации
   const imageUrl = `${api.defaults.baseURL}/${product.image}`;
 
   const isFavorite = useSelector(s => selectIsFavorite(s, product.id));
+  const isInCart = useSelector(s => selectIsInCart(s, product.id)); // Теперь работает
 
   const handleAddToCart = (e) => {
-    e.preventDefault();      // не переходим по <Link>
-    e.stopPropagation();     // не пробрасываемся выше
+    e.preventDefault();
+    e.stopPropagation();
     dispatch(addToCart({
       id: product.id,
       title: product.title,
@@ -36,11 +41,13 @@ const ProductCard = ({ product }) => {
     dispatch(addFavorite(product.id)); 
   };
 
+  const handleClick = () => navigate(`/product/${product.id}`); // Переход на детали, если нужно; иначе удали onClick на img/p
+
   return (
     <div className={styles.productCard}>
       <Link to={`/product/${product.id}`} className={styles.productLink}>
-        <img src={imageUrl} alt={product.title} className={styles.productImg} />
-        <h3 className={styles.productName}>{product.title}</h3>
+        <img src={imageUrl} alt={product.title} className={styles.productImg} onClick={handleClick} />
+        <h3 className={styles.productName} onClick={handleClick}>{product.title}</h3>
 
         <button
           type="button"
@@ -55,7 +62,7 @@ const ProductCard = ({ product }) => {
           className={styles.addToCartBtn} 
           onClick={handleAddToCart}
         >
-          <CartIcon className={styles.icon} />
+          {isInCart ? <CartIconGreen className={styles.icon} /> : <CartIcon className={styles.icon} />}
         </button>
       </Link>
 

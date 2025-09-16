@@ -12,7 +12,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid var(--header-separator, rgba(0, 0, 0, .08));
+  border-bottom: 1px solid var(--border-card-color);
 }
 
 .noSeparator {

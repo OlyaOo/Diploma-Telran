@@ -1,6 +1,7 @@
 .product {
   padding: var(--container-padding);
   margin-top: var(--mt-m);
+  
 }
 
 
@@ -19,7 +20,7 @@
   gap: var(--card-gap);
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 auto;
-
+  
 }
 
 @media (max-width: 1000px) {

@@ -3,21 +3,22 @@
   grid-template-columns: 1fr auto;
   gap: 32px;
   padding:  0 40px 90px 40px;
-  background-color: var(--footer-bg); 
-  
-  
 }
 
 .saleLine {
-  flex: 1;     
+ 
+  flex: 1 auto;       
   height: 1px;
   background: var(--label-color);
+
+  
 }
 
 .header {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
+  padding-top: 15px;
 }
 
 

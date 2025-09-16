@@ -58,13 +58,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
 }
 .checkoutFields input {
   width: 100%; 
-  background-color: var(--footer-bg); 
+  background-color: var(--input-card-color);
   border-radius: 6px; 
   padding: 16px; 
-  border: 1px solid var(--border-Color); 
+  border: 1px solid var(--border-card-color);
   font-size: 20px; 
 }
 
