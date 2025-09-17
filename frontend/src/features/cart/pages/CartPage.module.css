@@ -23,7 +23,7 @@
   flex-direction: column;
   row-gap: 32px;
    align-items: flex-start;
-   padding-top: 40px;
+   padding: 40px 40px 0 40px;
 }
 
 .empty {
@@ -76,7 +76,7 @@ border-radius: 6px;
   }
 
   .cartEmpty {
-  padding-top: 32px;
+  padding: 32px 20px 0 20px;
 }
 }
 
@@ -88,4 +88,8 @@ border-radius: 6px;
   .title {
     font-size: 24px; 
   }
+
+  .cartEmpty {
+  row-gap: 24px;
+}
 }
