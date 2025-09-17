@@ -30,7 +30,16 @@ const CartPage = () => {
 
  
 
-  if (items.length === 0) return <p className={styles.empty}>Shopping cart empty</p>;
+  if (items.length === 0) {
+    return (
+      
+      <div className={styles.cartEmpty}>
+        <TitleList title="Shopping cart" type="Back to the store" link="/" />
+        <p className={styles.empty}>Looks like you have no items in your basket currently.</p>
+        <button className={styles.continueBtn} onClick={() => navigate('/products')}>Continue Shopping</button> 
+      </div>
+    );
+  }
 
   return (
     <div className={styles.cartPage}>
