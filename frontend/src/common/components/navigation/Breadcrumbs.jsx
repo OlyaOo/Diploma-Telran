@@ -61,12 +61,12 @@ const Breadcrumbs = () => {
     <nav className="breadcrumb">
       <ol className="breadcrumb-list">
         {crumbs.map(({ name, url }) => (
-          <>
-            <li key={url} className="breadcrumb-item">
+          <React.Fragment key={url}>
+            <li className="breadcrumb-item">
               <Link to={url}>{name}</Link>
             </li>
             <div className="breadcrumb-line"></div>
-          </>
+          </React.Fragment>
         ))}
       </ol>
     </nav>

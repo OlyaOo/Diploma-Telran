@@ -28,7 +28,7 @@ const ProductDetailsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleImageClick = () => {
-setIsModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
@@ -38,7 +38,7 @@ setIsModalOpen(true);
   useEffect(() => {
     dispatch(fetchProductById(id));
   }, [dispatch, id]);
-  
+
 
   if (status === 'loading' || !current) return <Loader />;
 
@@ -60,7 +60,7 @@ setIsModalOpen(true);
 
   return (
     <div className={styles.productDetails}>
-      <img className={styles.productImg} src={imageUrl} alt={current.title} onClick={handleImageClick} 
+      <img className={styles.productImg} src={imageUrl} alt={current.title} onClick={handleImageClick}
       />
       <div className={styles.content}>
         <div className={styles.upperContent}>
@@ -87,11 +87,11 @@ setIsModalOpen(true);
               )}
             </div>
             <div className={styles.quantityContainer}>
-              
+
               <button onClick={handleDecrement} className={styles.quantityButton}>-</button>
               <input type="number" value={quantity} readOnly className={styles.quantityInput} />
-              <button onClick={handleIncrement} className={styles.quantityButton}>+</button>
-              
+              <button onClick={handleIncrement} className={`${styles.quantityButton} ${styles.quantityMl}`}>+</button>
+
               <button onClick={handleAddToCart} className={styles.addToCart}>Add to cart</button>
             </div>
           </div>
@@ -111,12 +111,12 @@ setIsModalOpen(true);
           )}
         </div>
         {isModalOpen && (
-        <ImageZoomModal
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-          imageSrc={imageUrl}
-          alt={current.title}
-        />
+          <ImageZoomModal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            imageSrc={imageUrl}
+            alt={current.title}
+          />
         )}
       </div>
     </div>

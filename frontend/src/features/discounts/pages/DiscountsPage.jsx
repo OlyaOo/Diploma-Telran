@@ -16,10 +16,8 @@ const DiscountsPage = () => {
   const [sort, setSort] = useState('default');
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchProducts({}));
-    }
-  }, [dispatch, status]);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   if (status === 'loading') return <p>Loading...</p>;
   if (status === 'failed') return <p>Error: {error}</p>;
@@ -34,7 +32,7 @@ const DiscountsPage = () => {
 
   return (
     <div className={prodStyles.product}>
-      <TitleList title="Discounted items" type="Back to the store" link="/" />
+      <TitleList title="Discounted items" />
       <div className={styles.filter}>
         <div className={styles.price}>
           <label>Price</label>

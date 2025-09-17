@@ -6,17 +6,19 @@ import ProductCard from '../components/ProductCard.jsx';
 import { Loader } from '@common/components';
 import styles from './ProductsPage.module.css';
 import FilterSortControls from '../../filterSort/FilterSortControls.jsx'; // Новый компонент
+import TitleList from '@common/components/ui/title/TitleList.jsx';
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { items, status } = useSelector(state => state.products);
+  const { items: categories } = useSelector(state => state.categories);
 
   const [filters, setFilters] = useState({ minPrice: '', maxPrice: '', discounted: false });
   const [sort, setSort] = useState('default');
 
   useEffect(() => {
-    dispatch(fetchProducts({categoryId: id, ...filters, sort }));
+    dispatch(fetchProducts({ categoryId: id, ...filters, sort }));
   }, [dispatch, id, filters, sort]);
 
   if (status === 'loading' && items.length === 0) return <Loader />;
@@ -42,8 +44,15 @@ const ProductsPage = () => {
     setFilters(prev => ({ ...prev, discounted: checked }));
   };
 
+  let pageTitle = 'Products';
+  if (id) {
+    const cat = categories.find(c => c.id === Number(id));
+    pageTitle = cat ? cat.title : 'Products';
+  }
+
   return (
     <div className={styles.product}>
+      <TitleList title={pageTitle} />
       <div className={styles.filterSection}>
         <FilterSortControls onChange={handlePriceChange} onDiscountedChange={handleDiscountedChange} onSortChange={setSort} /> {/* Обновлённый вызов с отдельными handlers, если нужно; или один onChange */}
       </div>

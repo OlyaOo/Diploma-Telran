@@ -28,7 +28,7 @@ const CartPage = () => {
     dispatch(removeFromCart(id));
   };
 
- 
+
 
   if (items.length === 0) return <p className={styles.empty}>Shopping cart empty</p>;
 
@@ -37,8 +37,8 @@ const CartPage = () => {
       <div className={styles.header}>
         <TitleList title="Shopping cart" type="Back to the store" link="/" />
       </div>
-      
-      <div className={styles.itemList}> 
+
+      <div className={styles.itemList}>
         {items.map(item => (
           <CartItem
             key={item.id}

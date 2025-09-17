@@ -84,12 +84,15 @@
 .quantityContainer {
     display: flex;
     align-items: center;
-
+    position: relative;
+    margin-top: 32px;
 }
 
 
 
 .quantityButton {
+    position: relative;
+    z-index: 1;
     padding: 17px;
     font-size: 24px;
     cursor: pointer;
@@ -101,6 +104,11 @@
 
 }
 
+.quantityMl {
+    margin-left: 70px;
+}
+
+
 .quantityInput {
     font-size: 24px;
     text-align: center;
@@ -110,7 +118,10 @@
     background-color: var(--input-card-color);
     color: var(--text-color);
     border-radius: 6px;
-border: 1px solid var(--border-card-color);
+    border: 1px solid var(--border-card-color);
+    position: absolute;
+    left: 39.5px;
+    top: 0px;
 }
 
 .addToCart {

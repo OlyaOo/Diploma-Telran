@@ -5,14 +5,14 @@
 
 .saleHeader {
   display: flex;
-  align-items: center; 
+  align-items: center;
   gap: 16px;
-  padding-bottom: 40px;            
+  padding-bottom: 40px;
 }
 
 
 .saleLine {
-  flex: 1 1 auto;       
+  flex: 1 1 auto;
   height: 1px;
   background: var(--label-color);
 }

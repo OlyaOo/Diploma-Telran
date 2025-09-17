@@ -1,13 +1,13 @@
 .notFoundPage {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 208px 40px 40px 40px; 
+  padding: 208px 40px 40px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px; 
-  min-height: calc(100vh - 100px); 
+  gap: 32px;
+  min-height: calc(100vh - 100px);
 }
 
 .numberContainer {
@@ -17,14 +17,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 16px; 
+  gap: 16px;
 }
 
 .number {
   width: 179.3975px;
   height: 245.8801px;
   font-family: "Montserrat", sans-serif;
-  font-size: 200px; 
+  font-size: 200px;
   font-weight: 700;
   color: #92a134;
   text-align: center;
@@ -44,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 60px; 
+  gap: 60px;
 }
 
 .textInnerContainer {
@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px; 
+  gap: 4px;
 }
 
 .title {
@@ -67,13 +67,13 @@
 }
 
 .message {
-  width: 760px;
+  max-width: 670px;
   height: 52px;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 130%;
-  color: #424436;
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -81,7 +81,7 @@
   width: 209px;
   height: 58px;
   font-family: "Montserrat", sans-serif;
-  font-size: 20px; 
+  font-size: 20px;
   font-weight: 600;
   line-height: 130%;
   color: white;
@@ -97,7 +97,7 @@
 }
 
 .homeButton:hover {
-  background-color: #7b8a2c; 
+  background-color: #7b8a2c;
 }
 
 
@@ -105,40 +105,49 @@
   .notFoundPage {
     padding: 100px 20px 20px 20px;
     width: 100%;
+    max-width: 564px;
   }
+
   .numberContainer {
     width: 100%;
     height: auto;
     gap: 12px;
   }
+
   .number {
     width: 120px;
     height: 165px;
     font-size: 140px;
     line-height: 165px;
   }
+
   .cactus {
     width: 200px;
     height: 180px;
   }
+
   .textContainer {
     width: 100%;
     height: auto;
   }
+
   .textInnerContainer {
     width: 100%;
     height: auto;
   }
+
   .title {
     width: 100%;
     height: auto;
     font-size: 48px;
   }
+
   .message {
     width: 100%;
     height: auto;
     font-size: 18px;
   }
+
   .homeButton {
     width: 180px;
     height: 50px;
@@ -150,25 +159,31 @@
   .notFoundPage {
     padding: 80px 20px 20px 20px;
   }
+
   .numberContainer {
     gap: 10px;
   }
+
   .number {
     width: 100px;
     height: 135px;
     font-size: 120px;
     line-height: 135px;
   }
+
   .cactus {
     width: 160px;
     height: 144px;
   }
+
   .title {
     font-size: 36px;
   }
+
   .message {
     font-size: 16px;
   }
+
   .homeButton {
     width: 160px;
     height: 46px;
@@ -180,25 +195,31 @@
   .notFoundPage {
     padding: 60px 20px 20px 20px;
   }
+
   .numberContainer {
     gap: 8px;
   }
+
   .number {
     width: 80px;
     height: 108px;
     font-size: 96px;
     line-height: 108px;
   }
+
   .cactus {
     width: 120px;
     height: 108px;
   }
+
   .title {
     font-size: 28px;
   }
+
   .message {
     font-size: 14px;
   }
+
   .homeButton {
     width: 140px;
     height: 42px;
@@ -211,25 +232,31 @@
   .notFoundPage {
     padding: 40px 20px 20px 20px;
   }
+
   .numberContainer {
     gap: 6px;
   }
+
   .number {
     width: 60px;
     height: 81px;
     font-size: 72px;
     line-height: 81px;
   }
+
   .cactus {
     width: 90px;
     height: 81px;
   }
+
   .title {
     font-size: 24px;
   }
+
   .message {
     font-size: 14px;
   }
+
   .homeButton {
     width: 120px;
     height: 38px;
