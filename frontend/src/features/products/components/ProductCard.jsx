@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
   const handleFavorite = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(addFavorite(product.id)); 
+    dispatch(addFavorite(product.id));
   };
 
   const handleClick = () => navigate(`/product/${product.id}`); // Переход на детали, если нужно; иначе удали onClick на img/p
@@ -51,7 +51,7 @@ const ProductCard = ({ product }) => {
 
         <button
           type="button"
-          className={styles.favoriteBtn} 
+          className={styles.favoriteBtn}
           onClick={handleFavorite}
         >
           {isFavorite ? <HeartIconGreen className={styles.icon} /> : <HeartIcon className={styles.icon} />}
@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
 
         <button
           type="button"
-          className={styles.addToCartBtn} 
+          className={styles.addToCartBtn}
           onClick={handleAddToCart}
         >
           {isInCart ? <CartIconGreen className={styles.icon} /> : <CartIcon className={styles.icon} />}

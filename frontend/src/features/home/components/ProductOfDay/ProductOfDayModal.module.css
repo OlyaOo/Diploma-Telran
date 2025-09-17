@@ -5,7 +5,7 @@
   z-index: 2000;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   background: rgba(0, 0, 0, .45);
   padding: 16px;
   overscroll-behavior: contain;
@@ -175,7 +175,6 @@
   }
 
   body {
-    padding: 16px;
     gap: 16px;
     margin-bottom: 16px;
   }

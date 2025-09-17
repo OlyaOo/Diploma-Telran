@@ -2,25 +2,34 @@
   position: relative;
   width: 100%;
   max-width: 316px;
-    background: var(-bg);
+  display: flex;
+  flex-direction: column;
+  background: var(-bg);
   border-radius: var(--border-radius-big);
   border: 1px solid var(--border-card-color);
 }
 
 .productLink {
   text-decoration: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .productImg {
   width: 100%;
   border-radius: 10px;
+  flex: 1;
   object-fit: cover;
-  cursor: pointer; /*новое. Добавлено, что изображение кликабельно */
-  transition: transform 0.3s ease; /* новое. Плавное увеличение при наведении */
+  cursor: pointer;
+  /*новое. Добавлено, что изображение кликабельно */
+  transition: transform 0.3s ease;
+  /* новое. Плавное увеличение при наведении */
 }
 
 .productImg:hover {
-  transform: scale(1.05); /*новое. Увеличение изображения при наведении */
+  transform: scale(1.05);
+  /*новое. Увеличение изображения при наведении */
 }
 
 .productName {
@@ -58,7 +67,7 @@
 .addToCartBtn {
   position: absolute;
   top: 74px;
-  right: 16px; 
+  right: 16px;
   border: none;
   background: none;
   cursor: pointer;
@@ -77,10 +86,14 @@
   max-width: 40px;
 }
 
- @media (max-width: 360px) { 
+@media (max-width: 450px) {
   .productCard {
-  max-width: 290px; 
-}
+    max-width: 100%;
+  }
 }
 
-
+@media (max-width: 360px) {
+  .productCard {
+    max-width: 290px;
+  }
+}

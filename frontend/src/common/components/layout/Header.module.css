@@ -93,7 +93,7 @@
 
 .switch__knob {
   position: absolute;
-  left: 1px;
+  left: 2px;
   top: 1.9px;
   width: 24.5px;
   height: 24.5px;
@@ -111,7 +111,7 @@
 :global(body.dark) :local(.switch__knob) {
   background: #8B8B8B;
   /* серая ручка */
-  transform: translateX(27.5px);
+  transform: translateX(24.5px);
 }
 
 :global(body.dark) :local(.switch::after) {
@@ -134,6 +134,7 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
 /* Стили для фокуса на кнопке со скидкой */
 .discount-btn:focus-visible {
   outline: 2px solid currentColor;
@@ -344,7 +345,7 @@
 
   :global(body.dark) :local(.switch__knob) {
     /* серая ручка */
-    transform: translateX(30px);
+    transform: translateX(29px);
   }
 
   .discount-btn {

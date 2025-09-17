@@ -5,6 +5,7 @@ import ProductCard from '@features/products/components/ProductCard.jsx';
 import { selectFavoriteIds } from '@redux/slices/favoritesSlice.js';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import styles from '@features/products/pages/ProductsPage.module.css';
+import TitleList from "@common/components/ui/title/TitleList.jsx";
 
 export default function FavoritesPage() {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export default function FavoritesPage() {
 
   return (
     <div className={styles.product}>
-      <h2>Favorites ({favoriteProducts.length})</h2>
+      <TitleList title={`Favorites (${favoriteProducts.length})`} />
       <div className={styles.productGrid}>
         {favoriteProducts.map(prod => (
           <ProductCard key={prod.id} product={prod} /> // Render only favorite products
