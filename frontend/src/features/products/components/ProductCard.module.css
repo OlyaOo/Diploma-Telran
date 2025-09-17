@@ -1,54 +1,24 @@
 .productCard {
-  position: relative;
   width: 100%;
-  max-width: 316px;
-  display: flex;
-  flex-direction: column;
-  background: var(-bg);
+  position: relative;
+  background: var(--card-bg);
   border-radius: var(--border-radius-big);
   border: 1px solid var(--border-card-color);
-}
-
-.productLink {
-  text-decoration: none;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.productImg {
-  width: 100%;
-  border-radius: 10px;
-  flex: 1;
-  object-fit: cover;
-  cursor: pointer;
-  /*новое. Добавлено, что изображение кликабельно */
-  transition: transform 0.3s ease;
-  /* новое. Плавное увеличение при наведении */
-}
-
-.productImg:hover {
-  transform: scale(1.05);
-  /*новое. Увеличение изображения при наведении */
-}
-
-.productName {
   overflow: hidden;
-  color: var(--text-color, #424436);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 20px 20px 12px 20px;
 }
-
-
 
 .priceBlock {
   display: flex;
   align-items: baseline;
-  padding: 0 20px 20px 20px;
   gap: 12px;
+  padding-left: 32px;
+  padding-bottom: 32px;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: var(--label-color);
+  font-size: 20px;
 }
 
 .newPrice {
@@ -57,17 +27,24 @@
   font-weight: 600;
 }
 
-.oldPrice {
-  text-decoration: line-through;
-  color: var(--label-color);
+.productName {
+  padding: 20px 32px 16px 32px;
   font-size: 20px;
-  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productImg {
+  width: 100%;
+  object-fit: cover;
 }
 
 .addToCartBtn {
   position: absolute;
   top: 74px;
-  right: 16px;
+  right: 18px;
   border: none;
   background: none;
   cursor: pointer;
@@ -75,8 +52,8 @@
 
 .favoriteBtn {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
   cursor: pointer;
   background: none;
   border: none;
@@ -86,14 +63,30 @@
   max-width: 40px;
 }
 
-@media (max-width: 450px) {
-  .productCard {
-    max-width: 100%;
+@media (max-width: 768px) {
+  .productName {
+    padding: 20px;
+  }
+
+  .priceBlock {
+    padding-left: 20px;
+    padding-bottom: 20px;
   }
 }
 
 @media (max-width: 360px) {
-  .productCard {
-    max-width: 290px;
+  .productImg {
+    width: 100%;
+    aspect-ratio: 5 / 5;
+    object-fit: cover;
+  }
+
+  .productName {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .icon {
+    max-width: 32px;
   }
 }

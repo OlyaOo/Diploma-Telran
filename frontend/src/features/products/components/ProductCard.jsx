@@ -14,6 +14,7 @@ import CartIcon from '@/assets/icons/cart.svg?react';
 import CartIconGreen from '@/assets/icons/cart_green.svg?react'; // Убедитесь, что файл существует
 import DiscountBadge from '../../discounts/components/DiscountPrice';
 
+
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Для навигации
