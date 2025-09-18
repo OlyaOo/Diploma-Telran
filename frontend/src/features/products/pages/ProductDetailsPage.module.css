@@ -121,12 +121,6 @@
     color: var(--text-color);
     border-radius: 6px;
     border: 1px solid var(--border-card-color);
-<<<<<<< HEAD
-    position: absolute;
-    left: 39.5px;
-    top: 0px;
-=======
->>>>>>> e67399d (новые фиксы, адаптив для 1 товара)
 }
 
 .addToCart {
@@ -195,11 +189,11 @@
     .quantityContainer {
         display: flex;
         flex-direction: row;
-        /* Изменено: flex-direction: row для горизонтальной компоновки элементов */
+       
         flex-wrap: wrap;
-        /* Добавлено: flex-wrap: wrap, чтобы элементы переносились на новую строку, если не помещаются */
+        
         align-items: center;
-        /* Добавлено: align-items: center для вертикального выравнивания - число + в центре */
+      
         flex-shrink: 0;
         gap: 10px;
     }
