@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import ProductCard from '../components/ProductCard.jsx';
 import { Loader } from '@common/components';
+import SceletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx';
 import styles from './ProductsPage.module.css';
 import FilterSortControls from '../../filterSort/FilterSortControls.jsx'; // Новый компонент
 import TitleList from '@common/components/ui/title/TitleList.jsx';
@@ -13,15 +14,13 @@ const ProductsPage = () => {
   const { id } = useParams();
   const { items, status } = useSelector(state => state.products);
   const { items: categories } = useSelector(state => state.categories);
-
+  const isFirstLoad = status === 'loading' && items.length === 0;
   const [filters, setFilters] = useState({ minPrice: '', maxPrice: '', discounted: false });
   const [sort, setSort] = useState('default');
 
   useEffect(() => {
     dispatch(fetchProducts({ categoryId: id, ...filters, sort }));
   }, [dispatch, id, filters, sort]);
-
-  if (status === 'loading' && items.length === 0) return <Loader />;
 
   let filteredSortedItems = [...items];
 
@@ -57,9 +56,15 @@ const ProductsPage = () => {
         <FilterSortControls onChange={handlePriceChange} onDiscountedChange={handleDiscountedChange} onSortChange={setSort} /> {/* Обновлённый вызов с отдельными handlers, если нужно; или один onChange */}
       </div>
       <div className={styles.productGrid}>
-        {filteredSortedItems.slice(0, 35).map(prod => (
-          <ProductCard key={prod.id} product={prod} />
-        ))}
+        {isFirstLoad ? (
+          <SceletonGrid count={12} />
+        ) : status === 'loading' ? (
+          <Loader />
+        ) : (
+          filteredSortedItems.slice(0, 35).map(prod => (
+            <ProductCard key={prod.id} product={prod} />
+          ))
+        )}
       </div>
     </div>
   );
