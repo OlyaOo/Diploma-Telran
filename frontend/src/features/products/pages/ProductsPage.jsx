@@ -7,7 +7,7 @@ import { Loader } from '@common/components';
 import SceletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx';
 import styles from './ProductsPage.module.css';
 import FilterSortControls from '../../filterSort/FilterSortControls.jsx'; // Новый компонент
-import TitleList from '@common/components/ui/title/TitleList.jsx';
+import Title from '@common/components/ui/title/Title.jsx';
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const ProductsPage = () => {
 
   return (
     <div className={styles.product}>
-      <TitleList title={pageTitle} />
+      <Title text="All Products" />
       <div className={styles.filterSection}>
         <FilterSortControls onChange={handlePriceChange} onDiscountedChange={handleDiscountedChange} onSortChange={setSort} /> {/* Обновлённый вызов с отдельными handlers, если нужно; или один onChange */}
       </div>

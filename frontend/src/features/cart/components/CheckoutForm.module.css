@@ -1,7 +1,7 @@
 .checkoutRoot {
   background-color: var(--card-bg);
   border-radius: 12px;
- max-height: 580px;
+  max-height: 580px;
  
 }
 

@@ -1,8 +1,6 @@
 .controls {
     display: flex;
-
-    gap: 40px;
-
+    gap: var(--mt-m);
 }
 
 .discountedLabel {
@@ -83,7 +81,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 896px) {
     .controls {
         flex-wrap: wrap;
         row-gap: 20px;

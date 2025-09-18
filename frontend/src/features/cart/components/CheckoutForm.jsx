@@ -1,9 +1,16 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '@redux/slices/cartSlice.js';
 import styles from './CheckoutForm.module.css';
 
 const CheckoutForm = ({ items }) => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const dispatch = useDispatch();
+
   const onSubmit = (data) => {
+    data.name = data.name.trim(); 
+    localStorage.setItem('orderData', JSON.stringify(data));
+    dispatch(clearCart());
     reset();
   };
 
@@ -31,7 +38,7 @@ const CheckoutForm = ({ items }) => {
                 required: 'Please enter your name',
                 minLength: { value: 3, message: 'Name is too short (min 3)' },
                 maxLength: { value: 40, message: 'Name is too long (max 40)' },
-                pattern: { value: /^[A-Za-zА-Яа-яЁё]+$/, message: 'Name can contain only letters' },
+                pattern: { value: /^[A-Za-zА-Яа-яЁё\s]+$/, message: 'Name can contain only letters and spaces' }
               })}
             />
             {errors.name && <span>{errors.name.message}</span>}
@@ -43,7 +50,7 @@ const CheckoutForm = ({ items }) => {
                 required: 'Please enter your phone number',
                 minLength: { value: 8, message: 'Phone number is too short' },
                 maxLength: { value: 15, message: 'Phone number is too long' },
-                pattern: { value: /^[+\d\s()-]+$/, message: 'Only allowed characters: 0-9 + ( ) - space' },
+                pattern: { value: /^[+\d\s()-]+$/, message: 'Only allowed characters: 0-9 + ( ) - space' }
               })}
             />
             {errors.phone && <span>{errors.phone.message}</span>}
@@ -53,7 +60,7 @@ const CheckoutForm = ({ items }) => {
               placeholder="Email"
               {...register('email', {
                 required: 'Please enter your email',
-                pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Please enter a valid email' },
+                pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Please enter a valid email' }
               })}
             />
             {errors.email && <span>{errors.email.message}</span>}

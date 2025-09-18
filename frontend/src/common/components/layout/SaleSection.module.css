@@ -57,6 +57,6 @@
 
 @media (max-width: 450px) {
   .saleGrid {
-    grid-template-columns: 1fr;
+     grid-template-columns: 1fr;
   }
 }

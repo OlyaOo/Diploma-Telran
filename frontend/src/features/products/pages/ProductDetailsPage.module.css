@@ -88,7 +88,9 @@
     margin-top: 32px;
 }
 
-
+.blos {
+    display: flex;
+}
 
 .quantityButton {
     position: relative;
@@ -119,9 +121,12 @@
     color: var(--text-color);
     border-radius: 6px;
     border: 1px solid var(--border-card-color);
+<<<<<<< HEAD
     position: absolute;
     left: 39.5px;
     top: 0px;
+=======
+>>>>>>> e67399d (новые фиксы, адаптив для 1 товара)
 }
 
 .addToCart {
@@ -173,14 +178,14 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 999px) {
     .productDetails {
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-rows: auto auto;
-        /* Определяет 2 строки */
+       
         grid-template-areas:
-            /*Определяет, как элементы размещаются в сетке*/
+            
             "image upperContent"
             "descriptionBlock descriptionBlock";
         gap: 20px;
@@ -200,9 +205,10 @@
     }
 
 
-    .quantityContainer .addToCart {
-        width: 100%;
-        /* Add to cart на всю ширину под строкой */
+   
+
+    .addToCart {
+        margin-left: 0;
     }
 
     .title {
@@ -240,7 +246,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 680px) {
     .productDetails {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -336,7 +342,7 @@
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 440px) {
     .productDetails {
         display: flex;
         flex-direction: column;
@@ -345,7 +351,8 @@
 
     .productImg {
         width: 100%;
-        max-height: 220px;
+        max-width: 500px;
+        max-height: 240px;
         object-fit: cover;
     }
 
@@ -371,5 +378,14 @@
         font-size: 14px;
     }
 
-
+   .priceContainer  {
+    display: flex;
+    justify-content: center;
+   }
+   .quantityContainer {
+     display: flex;
+     justify-content: center;
+   }
 }
+
+
