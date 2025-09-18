@@ -7,6 +7,21 @@
   overflow: hidden;
 }
 
+.productCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard img {
+  flex: 1;
+}
+
 .productPrice {
   display: flex;
   align-items: baseline;
@@ -28,7 +43,7 @@
 }
 
 .productName {
-  padding: 20px 32px 16px 32px;
+  padding: 20px;
 
   font-size: 20px;
   color: var(--text);

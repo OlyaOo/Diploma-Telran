@@ -29,6 +29,7 @@
     --card-gap: 32px;
     --card-padding: 32px;
     --title-font-weight: 700;
+    --basket-imem-bg: #fff;
 }
 
 @media (max-width: 1000px) {
@@ -59,6 +60,7 @@ body.dark {
 
     --text-color: #FFFFFF;
     --card-bg: #383A2C;
+    --basket-imem-bg: #383A2C;
     --icon-fill: #FFFFF1;
     --border-card-color: #8B8B8B;
     --input-card-color: #424436;

@@ -5,14 +5,26 @@
   border-radius: var(--border-radius-big);
   border: 1px solid var(--border-card-color);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard img {
+  flex: 1;
 }
 
 .priceBlock {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding-left: 32px;
-  padding-bottom: 32px;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 .oldPrice {
@@ -28,7 +40,7 @@
 }
 
 .productName {
-  padding: 20px 32px 16px 32px;
+  padding: 20px;
   font-size: 20px;
   color: var(--text);
   white-space: nowrap;

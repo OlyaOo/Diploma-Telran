@@ -2,7 +2,14 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 32px;
-  padding: 0 40px 90px 40px;
+  padding: 0 40px 20px 40px;
+}
+
+@media (max-width: 1200px) {
+  .cartPage {
+    padding: 0 20px 10px 20px;
+  }
+
 }
 
 .header {
@@ -39,6 +46,13 @@
   border-radius: 6px;
 }
 
+@media (max-width: 999px) {
+  .cartPage {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+}
 
 @media (max-width: 768px) {
   .cartPage {

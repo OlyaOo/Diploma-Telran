@@ -2,13 +2,12 @@
     display: flex;
     align-items: flex-start;
     gap: 32px;
-    background: var(--card-bg);
+    background: var(--basket-imem-bg);
     border: 1px solid var(--border-card-color);
     margin-bottom: 16px;
     border-radius: 12px;
-
-
 }
+
 
 .itemImg {
 
@@ -23,7 +22,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-
+    padding-right: 5px;
 }
 
 .header {
@@ -120,6 +119,7 @@
         flex-wrap: wrap;
         gap: 12px;
         align-items: center;
+        flex: 1;
     }
 
     .itemInfo {
@@ -134,5 +134,21 @@
         order: 2;
         flex-basis: 100%;
         padding-bottom: 20px;
+
+    }
+}
+
+@media (max-width: 999px) {
+    .item {
+        align-items: stretch;
+    }
+
+}
+
+@media (max-width: 570px) {
+    .itemImg {
+        max-width: 116px;
+        max-height: 100%;
+        object-fit: cover;
     }
 }
