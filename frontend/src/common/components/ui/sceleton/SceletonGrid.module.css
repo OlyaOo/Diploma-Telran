@@ -1,0 +1,11 @@
+.grid {
+    display: contents;
+}
+
+.item {
+    aspect-ratio: 316 / 422;
+    width: 100%;
+    background: #F2F6D3;
+    position: relative;
+    overflow: hidden;
+}

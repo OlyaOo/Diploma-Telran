@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from '@features/products/components/ProductCard.jsx';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import TitleList from '@common/components/ui/title/TitleList.jsx';
-
+import SceletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx';
 import prodStyles from '@features/products/pages/ProductsPage.module.css';
 import styles from './DiscountPage.module.css';
 
@@ -19,7 +19,7 @@ const DiscountsPage = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (status === 'loading') return <p>Loading...</p>;
+  const isFirstLoad = (status === 'idle' || status === 'loading') && items.length === 0;
   if (status === 'failed') return <p>Error: {error}</p>;
 
   let discountedItems = items.filter(p => p.discont_price);
@@ -59,9 +59,10 @@ const DiscountsPage = () => {
         </div>
       </div>
       <div className={prodStyles.productGrid}>
-        {discountedItems.map(prod => (
-          <ProductCard key={prod.id} product={prod} />
-        ))}
+        {isFirstLoad
+          ? <SceletonGrid count={12} />
+          : discountedItems.map(prod => <ProductCard key={prod.id} product={prod} />)
+        }
       </div>
     </div>
   );

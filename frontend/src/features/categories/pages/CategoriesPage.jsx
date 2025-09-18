@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '@redux/slices/categorySlice.js';
 import CategoriesItems from "@features/home/components/CategoriesItems.jsx";
-
+import SceletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx';
 import TitleList from '@common/components/ui/title/TitleList.jsx';
 import { Loader } from '@common/components';
 
@@ -11,6 +11,7 @@ import styles from './CategoriesPage.module.css'
 const CategoriesPage = () => {
   const dispatch = useDispatch();
   const { items, status, error } = useSelector((state) => state.categories || { items: [], status: 'idle', error: null });
+  const isFirstLoad = status === 'loading' && items.length === 0;
 
   useEffect(() => {
     console.log('Dispatching fetchCategories...');
@@ -32,15 +33,19 @@ const CategoriesPage = () => {
     { id: 5, title: "Accessories", image: "/category_img/5.jpeg" },
   ];
 
-  const categoriesToShow = items.length > 0 ? getRandomCategories(items, 5) : fallbackCategories;
+  const categoriesToShow = isFirstLoad
+    ? []
+    : (items.length > 0 ? getRandomCategories(items, 5) : fallbackCategories);
 
   return (
     <div className={styles.categoriesPage}>
       <TitleList title="Categories" />
       <div className={styles.categoriesGrid}>
-        {status === 'loading' && <Loader />}
+        {isFirstLoad
+          ? <SceletonGrid count={12} />
+          : (status === 'loading' && items.length > 0) ? <Loader /> : null}
         {status === 'failed' && <p>Error: {error || 'Failed to load categories'}</p>}
-        {categoriesToShow.length > 0 ? (categoriesToShow.map((category) => (
+        {!isFirstLoad && (categoriesToShow.length > 0 ? (categoriesToShow.map((category) => (
           <CategoriesItems key={category.id}
             id={category.id}
             image={category.image}
@@ -49,9 +54,7 @@ const CategoriesPage = () => {
           />
         ))) : (
           <p>No categories available</p>
-        )}
-
-
+        ))}
       </div>
     </div>
   );
