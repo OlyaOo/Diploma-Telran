@@ -6,7 +6,7 @@ import { selectFavoriteIds } from '@redux/slices/favoritesSlice.js';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import styles from '@features/products/pages/ProductsPage.module.css';
 import TitleList from "@common/components/ui/title/TitleList.jsx";
-import SkeletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx'; 
+import SkeletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx';
 
 export default function FavoritesPage() {
   const dispatch = useDispatch();
@@ -15,12 +15,12 @@ export default function FavoritesPage() {
   const { items: products = [], status = 'idle', error } = useSelector(s => s.products);
 
   const favSet = new Set(favoriteIds.map(String));
-const favoriteProducts = products.filter(p => favSet.has(String(p.id))); // filtered favorites
+  const favoriteProducts = products.filter(p => favSet.has(String(p.id))); // filtered favorites
 
   useEffect(() => {
     if (status === 'idle') dispatch(fetchProducts({})); // Fetch all products to ensure favorites are up-to-date
   }, [status, dispatch]);
-  
+
   // Sceleton loading state
   const isFirstLoad = (status === 'idle' || status === 'loading') && products.length === 0;
 
@@ -45,7 +45,7 @@ const favoriteProducts = products.filter(p => favSet.has(String(p.id))); // filt
 
   return (
     <div className={styles.product}>
-      <TitleList title={`Favorites (${favoriteProducts.length})`} />
+      <TitleList title={`Liked products`} />
       <div className={styles.productGrid}>
         {isFirstLoad
           ? <SkeletonGrid count={Math.min(favoriteIds.length, 12)} />
