@@ -44,7 +44,6 @@
 
 .productName {
   padding: 20px;
-
   font-size: 20px;
   color: var(--text);
   white-space: nowrap;
@@ -54,7 +53,6 @@
 
 .productImg {
   width: 100%;
-
   object-fit: cover;
 }
 
