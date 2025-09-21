@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Добавлен useState для модалки
+import React, { useState } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { updateQuantity, removeFromCart, clearCart } from '@/redux/slices/cartSlice.js';
 import { useNavigate } from 'react-router-dom';
@@ -6,13 +6,13 @@ import CartItem from './CartItem.jsx';
 import CheckoutForm from '../components/CheckoutForm.jsx';
 import styles from './CartPage.module.css';
 import TitleList from '@common/components/ui/title/TitleList.jsx';
-import SvgX from '@/assets/icons/ic_x_dark.svg?react'; // Импорт для кнопки close в модалке
+import SvgX from '@/assets/icons/ic_x_dark.svg?react'; 
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { items } = useSelector(state => state.cart);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State для поп-апа в CartPage
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   const totalPrice = items.reduce(
     (sum, item) => sum + (item.discont_price || item.price) * (item.quantity || 1),
@@ -42,7 +42,7 @@ const CartPage = () => {
     dispatch(clearCart());
   };
 
-  // ВАЖНО: логическое И, чтобы не скрывать модалку
+ 
   if (items.length === 0 && !isModalOpen) {
     return (
       <div className={styles.cartEmpty}>
