@@ -46,6 +46,53 @@
   border-radius: 6px;
 }
 
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #92A134;
+  padding: 32px;
+  border-radius: 12px;
+  width: 548px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content:
+    space-between;
+  align-items: center;
+}
+
+.modal h2 {
+  font-size: 40px;
+  color: white;
+}
+
+.modal p {
+  font-size: 20px;
+  color: white;
+}
+
+.modal button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.backdrop {
+  position: fixed;
+  z-index:1000;
+  inset: 0;
+  background: rgba(0, 0, 0, .55); 
+  opacity: 0;
+  animation: fade .2s ease forwards;
+}
+@keyframes fade { to { opacity: 1; } }
+
 @media (max-width: 999px) {
   .cartPage {
     grid-template-columns: 1fr;
