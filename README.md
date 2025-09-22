@@ -1,216 +1,197 @@
-# Garden Products — интернет‑магазин (монорепо)
+Garden Products — интернет-магазин (монорепо)
 
-Монорепозиторий с **frontend** (Vite + React + Redux Toolkit) и **backend API** (Express + Sequelize + SQLite) для проекта “Интернет‑магазин товаров для дома и сада”.
+Полноценный учебный проект «Интернет-магазин товаров для дома и сада». Монорепозиторий объединяет SPA на React + Vite и REST API на Express + Sequelize с общей структурой, едиными сценариями запуска и готовыми мок-данными.
 
-## Быстрый старт
+Оглавление
 
-### Требования
-- Node.js 18+
-- npm 9+
+Особенности
 
-### Установка зависимостей
-```bash
-# из корня репозитория
-npm install
-npm --prefix frontend install
-npm --prefix backend install
-```
+Стек технологий
 
-### Запуск в разработке
-```bash
-# поднимет API на :3333 и фронт на :5173 одновременно
-npm run dev
-```
-Полезные скрипты:
-```bash
-npm run backend   # запустить только API
-npm run frontend  # запустить только фронтенд
-npm run build     # сборка фронтенда
-```
+Структура монорепозитория
 
-> По умолчанию фронтенд ходит на `http://localhost:3333`. Переопределите адрес через переменную окружения **VITE_API_URL**.
+Быстрый старт
 
----
+Скрипты
 
-## Архитектура проекта
+Переменные окружения
 
-DiplomaTelran/
-├─ frontend/                # Клиент (Vite + React)
-│  ├─ package.json
-│  └─ src/
-│     ├─ api/               # Axios-инстанс и запросы к API
-│     ├─ app/               # Корневой <App/>, маршруты
-│     ├─ assets/            # Статические ресурсы (если нужны)
-│     ├─ common/            # Общие UI-компоненты, утилиты, страницы
-│     │  ├─ components/
-│     │  │  ├─ layout/      # Header, Footer и т.п.
-│     │  │  ├─ navigation/  # Breadcrumbs и навигация
-│     │  │  ├─ feedback/    # Loader, скелетоны
-│     │  │  └─ pages/       # Общие страницы, например 404
-│     │  └─ utils/          # Переиспользуемые функции (formatPrice и др.)
-│     ├─ features/          # “Фичи/модули” домена
-│     │  ├─ home/
-│     │  │  ├─ components/  # ProductOfDayModal и прочее
-│     │  │  ├─ pages/       # HomePage
-│     │  │  └─ hooks|utils  # Кастомные хуки/утилиты (по мере необходимости)
-│     │  ├─ products/       # Список товаров, карточка, детали
-│     │  ├─ categories/     # Категории
-│     │  ├─ discounts/      # Товары со скидкой
-│     │  ├─ favorites/      # Избранное
-│     │  └─ cart/           # Корзина
-│     ├─ redux/             # Глобальное состояние (RTK)
-│     │  ├─ store.js        # Конфигурация стора
-│     │  └─ slices/         # Срезы: products, categories, cart, favorites, home
-│     └─ styles/            # Глобальные стили и темы (themes.css)
+Frontend: архитектура
+
+Backend: архитектура
+
+Рабочий процесс и расширение функциональности
+
+TODO / Roadmap
+
+Авторы
+
+Особенности
+
+Единый монорепозиторий: фронтенд и бекенд рядом, используют общие скрипты и настройки окружения.
+
+Файловая структура фронтенда построена по принципам feature-sliced.
+
+Преднастроенный Redux Toolkit, React Router 6, axios-инстанс.
+
+REST API на Express + Sequelize + SQLite с сид-данными.
+
+Два dev-сервера, запускаемых одной командой (pnpm dev).
+
+Стек технологий
+
+Frontend
+
+Vite + React 18
+
+Redux Toolkit, React Router DOM
+
+Axios, React Hook Form, normalize.css, lucide-react
+
+Backend
+
+Node.js 18+, Express 4
+
+Sequelize 6 + SQLite
+
+Nodemon, CORS, статика Express
+
+Структура монорепозитория
+Diploma-Telran/
+├─ frontend/                        
+│  ├─ src/
+│  │  ├─ api/               
+│  │  ├─ app/               
+│  │  ├─ assets/            
+│  │  ├─ common/            
+│  │  │  ├─ components/     
+│  │  │  └─ utils/          
+│  │  ├─ features/          
+│  │  ├─ redux/             
+│  │  └─ styles/            
+│  ├─ vite.config.js        
+│  └─ package.json
 │
-├─ backend/                 # API (Express + Sequelize + SQLite)
-│  ├─ index.js              # Точка входа сервера (порт 3333)
-│  ├─ routes/               # Маршруты: products, categories, sale, order
-│  ├─ database/             # Инициализация Sequelize и модели
-│  │  └─ models/            # Category, Product (+ связи)
-│  └─ public/               # Статика: изображения категорий/товаров
+├─ backend/                         
+│  ├─ index.js                      
+│  ├─ routes/                       
+│  ├─ database/                     
+│  │  └─ models/                    
+│  ├─ public/                       
+│  └─ package.json
 │
-├─ package.json             # Скрипты монорепозитория
-└─ README.md                # Этот файл
+├─ package.json                     
+└─ README.md                        
 
-### Псевдо‑DDD через `features/`
-Каждая бизнес‑область выделена в модуль (features): **products**, **categories**, **cart**, **favorites**, **discounts**, **home**. Внутри модуля — однотипная структура: `components/`, `pages/`, `hooks/`, `utils/`. Это упрощает навигацию и изоляцию ответственности.
+Быстрый старт
+Требования
 
-### Глобальное состояние (Redux Toolkit)
-Стора собирается в `src/redux/store.js`. Срезы:
-- `productsSlice` — загрузка списка/деталей товара (`createAsyncThunk`, `axios`), кэш статуса (`loading/succeeded`).
-- `categoriesSlice` — список категорий, выбор активной категории.
-- `cartSlice` — простая корзина `{{items: []}}` с экшенами `addToCart`, `clearCart`.
-- `favoritesSlice` — избранное `{{items: []}}` с экшенами `addFavorite`, `removeFavorite`.
-- `homeSlice` — состояние для “товара дня” и прочего на главной.
+Node.js 18+
 
-Пример потока данных для страницы товаров:
-1) `ProductsPage` → `dispatch(fetchProducts(categoryId))`  
-2) `productsSlice` делает запрос через общую обёртку `@api/axios.js`  
-3) `extraReducers` сохраняют данные/статус в стор  
-4) Компоненты (`ProductCard`) подписаны на `{{state.products.items}}`
+PNPM 8+
 
-### Маршрутизация
-В `src/app/App.jsx` описаны маршруты (React Router v6):
-- `/` — главная (HomePage)
-- `/products` — все товары
-- `/category/:id` — товары по категории
-- `/product/:id` — карточка товара
-- `/categories` — список категорий
-- `/sales` — товары со скидкой
-- `*` — 404 (NotFoundPage)
+Установка зависимостей
+pnpm install
 
-Компонент `Breadcrumbs` строит “хлебные крошки” из `location.pathname`.
+Режим разработки
+pnpm dev
 
-### Импорт по алиасам
-Во `frontend/vite.config.js` настроены алиасы:
-```
-@       → src
-@api    → src/api
-@redux  → src/redux
-@features → src/features
-@common → src/common
-```
-Это избавляет от «../../../../». Пример: `import {{ Loader }} from '@common/components'`
 
-### Работа с API
-Общий axios‑инстанс — `src/api/axios.js`:
-```js
-const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3333' });
-```
-Также включён dev‑proxy Vite: запросы на `/api/*` проксируются на `http://localhost:3333`.
+Запустит API на :3333 и фронт на :5173.
 
-### UI и стили
-- Общие компоненты — в `common/components` (layout/navigation/feedback/pages).
-- Скелетон/лоадер — `feedback/Loader.jsx`.
-- Темы/стили — `styles/index.css`, `styles/themes.css`. Переключатель тёмной темы планируется хранить в `localStorage` (см. TODO).
+Скрипты
+Команда	Что делает
+pnpm dev	Запускает backend + frontend через concurrently.
+pnpm --filter backend dev	Только API с nodemon.
+pnpm --filter frontend dev	Только фронтенд (Vite).
+pnpm --filter frontend build	Сборка SPA.
+pnpm --filter frontend preview	Предпросмотр сборки.
+Переменные окружения
 
-### Ключевые экраны и фичи
-- **Главная**: приветственный блок + модалка “Товар дня” (`features/home/components/ProductOfDayModal.jsx`).
-- **Список товаров**: `ProductsPage` с загрузкой по категории, карточки `ProductCard` (поддержка цен со скидкой).
-- **Детальная карточка**: `ProductDetailsPage`.
-- **Категории / скидки / избранное / корзина**: заготовленные модули (`features/*`), логика постепенно дорабатывается.
+Frontend
 
----
+# frontend/.env
+VITE_API_URL=http://localhost:3333
 
-## Backend (API)
 
-### Технологии
-- **Express** — HTTP‑сервер
-- **Sequelize + SQLite** — ORM и база данных (файл `backend/database.sqlite`)
-- **CORS** — включён по умолчанию
-- **Статика** — папка `backend/public` (изображения товаров/категорий)
+Backend
 
-### Модели и связи
-- `Category` (id, title, image)
-- `Product`  (id, title, price, discont_price, description, image, categoryId)
-- `Category.hasMany(Product)`
+SQLite (backend/database.sqlite) по умолчанию.
 
-### Маршруты (из папки `backend/routes`)
-- `GET /products/all` — все товары
-- `GET /products/:id` — один товар
-- `GET /categories/all` — все категории
-- `GET /categories/:id` — товары категории + данные категории
-- `POST /sale/send` — отправка заявки на купон/скидку
-- `POST /order/send` — создание заказа (заглушка)
+Для другой СУБД — обновить database/database.js.
 
-Сервер слушает **порт 3333** (`backend/index.js`) и отдаёт `/public` как статику (например, изображения: `/product_img/...`).
+Frontend: архитектура
 
----
+src/api — общий axios-инстанс.
 
-## Переменные окружения
+src/app — маршруты, провайдеры.
 
-Фронтенд:
-- `VITE_API_URL` — базовый URL API (по умолчанию `http://localhost:3333`).  
-  Создайте `.env` в `frontend/`:
-  ```env
-  VITE_API_URL=http://localhost:3333
-  ```
+src/common — UI и утилиты.
 
-Бэкенд:
-- (опционально) переменные для подключения к другой БД, если решите заменить SQLite.
+src/features — бизнес-модули (products, categories, cart и др.).
 
----
+src/redux — store и slices.
 
-## Соглашения по коду
+src/styles — глобальные стили и темы.
 
-- **Файловая структура по фичам**: каждый модуль — своя папка в `features/`.  
-- **Именование**: компоненты — `PascalCase.jsx`, срезы — `camelCaseSlice.js`, хуки — `useSomething.js`.
-- **Импорты через алиасы** (см. выше).
-- **UI‑слои**: общие компоненты держим в `common/components`, бизнес‑специфичные — внутри фич.
+Маршруты (React Router v6):
 
----
+/ — главная
 
-## Типовой флоу добавления фичи
+/products — каталог
 
-1. Создайте `src/features/<feature>/{components,pages,hooks,utils}`
-2. Добавьте срез в `src/redux/slices/<feature>Slice.js`
-3. Зарегистрируйте редьюсер в `src/redux/store.js`
-4. (Опционально) Опишите маршруты в `src/app/App.jsx`
-5. Подключите запросы к API через `@api/axios.js`
+/product/:id — карточка товара
 
----
+/categories, /category/:id
 
-## TODO / Roadmap
+/sales, /favorites, /cart
 
-- [ ] Переключение тёмной темы с сохранением в `localStorage`
-- [ ] Формы с **react‑hook‑form** (скидка/купон, оформление заказа) + валидация
-- [ ] Фильтры/сортировки на списках товаров (цена, скидка, A→Z)
-- [ ] Пагинация и скелетоны на всех списках
-- [ ] Persist избранного/корзины (localStorage)
-- [ ] Тесты (unit на слайсы/утилиты)
-- [ ] CI/CD, деплой фронтенда (например, на render.com) и API
+* — 404
 
----
+Backend: архитектура
 
-## Частые вопросы
+Express-приложение (порт 3333).
 
-**Алиасы не работают?**  
-Убедитесь, что используется Vite и не удалён `frontend/vite.config.js` с разделом `resolve.alias`.
+Sequelize + SQLite: Category, Product.
 
-## Авторы проекта
+REST API (/products, /categories, /order, /sale).
 
-1. Иван - team lead
-2. Алекс
-3. Елена Корж
-4. Оля Одарюк
+Статика из backend/public.
+
+Рабочий процесс и расширение функциональности
+
+Создайте новую фичу в frontend/src/features/<feature>.
+
+Добавьте slice в redux/slices и зарегистрируйте в store.js.
+
+Подключите страницу в App.jsx.
+
+Для API-запросов используйте общий @api/axios.js.
+
+Для новых эндпоинтов расширяйте backend/routes и модели Sequelize.
+
+TODO / Roadmap
+
+ Тёмная тема (localStorage).
+
+ Формы (react-hook-form).
+
+ Фильтры и сортировки.
+
+ Пагинация и skeletons.
+
+ Persist для корзины/избранного.
+
+ Unit-тесты.
+
+ CI/CD: деплой фронта и API.
+
+Авторы
+
+Иван — team lead
+
+Алекс
+
+Елена Корж
+
+Оля Одарюк
