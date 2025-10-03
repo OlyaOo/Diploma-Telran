@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "cross-env ROLLUP_SKIP_NODEJS_NATIVE=1 ROLLUP_USE_NODEJS=1 npm_config_ignore_optional=true vite build",
     "preview": "vite preview",
     "test": "node -e \"console.log('No tests yet')\""
   },
