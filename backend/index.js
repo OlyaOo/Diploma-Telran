@@ -11,9 +11,13 @@ const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || '*';
 
 const app = express();
 
-app.use(cors({ origin: FRONTEND_ORIGIN }));             // <-- CORS по домену фронта
+app.use(cors({ origin: FRONTEND_ORIGIN || '*' }));             // <-- CORS по домену фронта
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Health-check
+app.get('/health', (_, res) => res.status(200).send('ok'));
+
 
 // Статика нужна только если решишь раздавать фронт из backend/public
 app.use(express.static('public'));
