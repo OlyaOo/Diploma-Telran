@@ -20,5 +20,6 @@
   "devDependencies": {
     "nodemon": "^3.1.10",
     "vite-plugin-svgr": "^4.5.0"
-  }
+  },
+  "engines": { "node": ">=18" }
 }
