@@ -14,7 +14,11 @@ const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || '*'; // домен фро
 const app = express();
 
 // --- CORS настройка --- 
-app.use(cors({ origin: FRONTEND_ORIGIN || '*' }));      
+app.use(cors({ origin: FRONTEND_ORIGIN,
+ methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false
+ }));      
 // если FRONTEND_ORIGIN задан → разрешаем только этот домен, иначе любой (*)
 
 // --- Middleware --- 

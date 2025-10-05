@@ -26,8 +26,8 @@ const CategoriesPage = () => {
   console.log('Redux state:', { items, status, error });
 
   const fallbackCategories = [
-    { id: 1, title: 'Annuals', image: '/category_img/1.jpg' },
-    { id: 2, title: 'Nursery', image: '/category_img/2.jpg' },
+    { id: 1, title: 'Annuals', image: '/category_img/1.jpeg' },
+    { id: 2, title: 'Nursery', image: '/category_img/2.jpeg' },
     { id: 3, title: "Garden Art", image: "/category_img/3.jpeg" },
     { id: 4, title: "Plant Care", image: "/category_img/4.jpeg" },
     { id: 5, title: "Accessories", image: "/category_img/5.jpeg" },

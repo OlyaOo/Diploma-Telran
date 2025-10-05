@@ -4,14 +4,22 @@ import { X } from "lucide-react";
 
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3333';
-  const imgSrc = item.image?.startsWith('/') ? `${baseUrl}${item.image}` : `${baseUrl}/${item.image}`;
+  const imgSrc = item.image
+    ? (item.image.startsWith('http')
+        ? item.image
+        : `${baseUrl}${item.image.startsWith('/') ? item.image : `/${item.image}`}`)
+    : `${baseUrl}/fallback.jpeg`;
 
   const currentPrice = item.discont_price || item.price;
   const itemTotal = currentPrice * item.quantity;
 
   return (
     <div className={styles.item}>
-      <img src={imgSrc} alt={item.title} className={styles.itemImg} />
+      <img src={imgSrc} alt={item.title} className={styles.itemImg} 
+      onError={(e) => {
+        e.currentTarget.src = `${baseUrl}/fallback.jpeg`;
+      }}
+      />
       <div className={styles.itemInfo}>
         <div className={styles.header}>
           <h2 className={styles.title}>{item.title}</h2>
