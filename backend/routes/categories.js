@@ -1,6 +1,6 @@
 const express = require('express');
 const Category = require('../database/models/category');
-const Product  = require('../database/models/product');
+const Product = require('../database/models/product');
 
 const router = express.Router();
 
@@ -46,5 +46,4 @@ router.get('/:id', async (req, res) => {
     return res.status(500).json({ status: 'ERR', message: 'Internal Server Error' });
   }
 });
-
 module.exports = router;
