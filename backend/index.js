@@ -1,3 +1,4 @@
+require('dotenv').config();  // для работы с .env файлами
 const express = require('express');      // фреймворк для сервера
 const cors = require('cors');            // библиотека для CORS (чтобы фронт мог обращаться к бэку)
 const categories = require('./routes/categories');  // роут для категорий
