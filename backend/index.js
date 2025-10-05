@@ -8,8 +8,7 @@ const sequelize = require('./database/database');   // подключение б
 
 // --- Константы окружения ---
 const PORT = process.env.PORT || 3333;                  // порт (берётся из ENV, если нет → 3333)
-const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || '*'; // домен фронтенда (для CORS). 
-// на деплое укажешь: FRONTEND_ORIGIN=https://diploma-telran-frontend.vercel.app
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'https://diploma-telran-frontend.vercel.app'; // домен фронтенда (для CORS). 
 
 const app = express();
 
