@@ -11,14 +11,16 @@ import CartIconGreen from '@/assets/icons/cart_green.svg?react'; // Добавл
 import DiscountBadge from '@/features/discounts/components/DiscountPrice';
 import styles from './ProductCardMain.module.css';
 
-const ProductCardMain = ({ id, title, price, discont_price, image }) => {
-  const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3333';
-  const imgSrc = image
-    ? (image.startsWith('http')
-      ? image
-      : `${baseUrl}${image.startsWith('/') ? image : `/${image}`}`)
-    : `${baseUrl}/fallback.jpeg`;
+import { imgUrl, backendFallbackUrl } from '@common/utils/imgUrl';
 
+const ProductCardMain = ({ id, title, price, discont_price, image }) => {
+  // const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3333';
+  // const imgSrc = image
+  //   ? (image.startsWith('http')
+  //     ? image
+  //     : `${baseUrl}${image.startsWith('/') ? image : `/${image}`}`)
+  //   : `${baseUrl}/fallback.jpeg`;
+const imgSrc = imgUrl(image);
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Для навигации
   const isFavorite = useSelector(s => selectIsFavorite(s, id));
@@ -68,7 +70,9 @@ const ProductCardMain = ({ id, title, price, discont_price, image }) => {
       {/* --- картинка с onError --- */}
       <img src={imgSrc} alt={title || 'Product'} className={styles.productImg} onClick={onClick}
         onError={(e) => {
-          e.currentTarget.src = `${baseUrl}/fallback.jpeg`;
+          // e.currentTarget.src = `${baseUrl}/fallback.jpeg`;
+          const fb = backendFallbackUrl();
+          if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
         }}
       />
       <p className={styles.productName} onClick={onClick}>{title}</p>
