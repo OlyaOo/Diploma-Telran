@@ -16,11 +16,20 @@ import DiscountBadge from '../../discounts/components/DiscountPrice';
 
 import { imgUrl, backendFallbackUrl } from '@common/utils/imgUrl';
 
+// helper для аккуратной склейки URL (без двойных слэшей и без /products в базе)
+const buildImgUrl = (p) => {
+  const base = (api.defaults.baseURL || '').replace(/\/+$/, ''); // убрать хвостовые /
+  if (!p) return `${base}/fallback.jpeg`;
+  if (/^https?:\/\//i.test(p)) return p;                         // уже абсолютный
+  const rel = p.startsWith('/') ? p : `/${p}`;
+  return `${base}${rel}`;
+};
+
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Для навигации
   // const imageUrl = `${api.defaults.baseURL}/${product.image}`;
-  const imageUrl = imgUrl(product.image);
+  const imageUrl = buildImgUrl(product.image);
 
   const isFavorite = useSelector(s => selectIsFavorite(s, product.id));
   const isInCart = useSelector(s => selectIsInCart(s, product.id)); // Теперь работает
@@ -56,8 +65,9 @@ const ProductCard = ({ product }) => {
           className={styles.productImg}
           onClick={handleClick}
           onError={(e) => {
-            const fb = backendFallbackUrl();
-            if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
+            const base = (api.defaults.baseURL || '').replace(/\/+$/, '');
+            const fb = `${base}/fallback.jpeg`;
+            if (e.currentTarget.src !== fb) e.currentTarget.src = fb;
           }}
         />
         <h3 className={styles.productName} onClick={handleClick}>{product.title}</h3>
